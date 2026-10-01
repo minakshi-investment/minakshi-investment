@@ -1,134 +1,199 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Minakshi Investment</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Google Font for premium look -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<title>Minakshi Investment</title>
 
-    <style>
-        body {
-            margin: 0;
-            font-family: 'Poppins', sans-serif;
-            background: #0d0d0d;
-            color: #f5f5f5;
-        }
+<meta name="description"
+content="Minakshi Investment - Registered Intermediaries and Empanelled Mutual Fund Companies">
 
-        .container {
-            max-width: 900px;
-            margin: 60px auto;
-            padding: 40px;
-            background: #141414;
-            border-radius: 16px;
-            box-shadow: 0 0 25px rgba(255, 215, 0, 0.08);
-            border: 1px solid rgba(255, 215, 0, 0.15);
-        }
+<style>
 
-        .logo {
-            text-align: center;
-            margin-bottom: 20px;
-        }
+* {
+    box-sizing: border-box;
+}
 
-        .logo img {
-            max-width: 120px;
-        }
+body {
+    margin: 0;
+    background: #ffffff;
+    color: #111111;
+    font-family: Arial, Helvetica, sans-serif;
+}
 
-        h1 {
-            text-align: center;
-            color: #d4af37; /* gold */
-            letter-spacing: 2px;
-            margin-bottom: 5px;
-        }
+.page {
+    width: 100%;
+    max-width: 850px;
+    margin: 0 auto;
+    padding: 45px 25px 25px;
+    text-align: center;
+}
 
-        h3 {
-            text-align: center;
-            color: #cccccc;
-            font-weight: 300;
-            margin-bottom: 40px;
-        }
+/* LOGO */
 
-        .card {
-            background: #1c1c1c;
-            padding: 20px 25px;
-            border-radius: 12px;
-            margin-bottom: 20px;
-            border-left: 4px solid #d4af37;
-            transition: 0.3s;
-        }
+.logo {
+    display: block;
+    width: 125px;
+    height: auto;
+    margin: 0 auto 18px;
+}
 
-        .card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.2);
-        }
+/* MAIN TITLE */
 
-        .name {
-            font-weight: 600;
-            font-size: 18px;
-            color: #ffffff;
-        }
+h1 {
+    margin: 0 0 42px;
+    font-size: 31px;
+    line-height: 1.2;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
 
-        .details {
-            margin-top: 8px;
-            color: #bbbbbb;
-            font-size: 14px;
-            line-height: 1.6;
-        }
+h2 {
+    margin: 0 0 28px;
+    font-size: 23px;
+    font-weight: 700;
+}
 
-        footer {
-            text-align: center;
-            margin-top: 30px;
-            font-size: 12px;
-            color: #777;
-        }
-    </style>
-</head>
+/* REGISTERED INTERMEDIARIES */
 
-<body>
+.intermediaries {
+    text-align: left;
+    display: inline-block;
+    width: 100%;
+    max-width: 690px;
+}
 
-    <div class="container">
+.person {
+    margin-bottom: 27px;
+}
 
-        <!-- LOGO -->
-        <div class="logo">
-            <img src="logo.png.png" alt="Company Logo">
-            
-        </div>
+.person-name {
+    font-size: 17px;
+    font-weight: 700;
+    margin-bottom: 4px;
+}
 
-        <h1>MINAKSHI INVESTMENT</h1>
-        <h3>Registered Intermediaries</h3>
-        
+.person-details {
+    font-size: 15px;
+    line-height: 1.65;
+}
 
-        <div class="card">
-            <div class="name">1. Sunil Kumar Sharma</div>
-            <div class="details">
-                (AMFI Registered Mutual Fund Distributor) - ARN : 49981
-            </div>
-        </div>
+.person-details strong {
+    font-weight: 700;
+}
 
-        <div class="card">
-            <div class="name">2. Saloni Sharma</div>
-            <div class="details">
-                (AMFI Registered Mutual Fund Distributor & SIF Distributor, APMI Registered PMS Distributor)<br>
-                ARN : 190283<br>
-                PMS : APRN05574
-            </div>
-        </div>
+/* EMPANELLED FUNDS */
 
-        <div class="card">
-            <div class="name">3. Anmol Sharma</div>
-            <div class="details">
-                (AMFI Registered Mutual Fund Distributor & SIF Distributor, APMI Registered PMS Distributor)<br>
-                ARN : 252225<br>
-                PMS : APRN05573
-            </div>
-        </div>
+.empanelled {
+    margin-top: 52px;
+    text-align: left;
+}
 
-        <footer>
-            © 2026 Minakshi Investment | All Rights Reserved
-        </footer>
+.empanelled h2 {
+    text-align: center;
+    margin-bottom: 22px;
+}
 
-    </div>
+/* SEARCH */
 
-</body>
-</html>
+.search-box {
+    width: 100%;
+    padding: 11px 13px;
+    margin-bottom: 18px;
+
+    border: 1px solid #cfcfcf;
+    border-radius: 4px;
+
+    font-family: inherit;
+    font-size: 14px;
+
+    outline: none;
+}
+
+.search-box:focus {
+    border-color: #777777;
+}
+
+/* TABLE */
+
+.fund-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+}
+
+.fund-table th,
+.fund-table td {
+    border: 1px solid #d8d8d8;
+    padding: 10px 12px;
+    text-align: left;
+    vertical-align: top;
+}
+
+.fund-table th {
+    font-weight: 700;
+    background: #f5f5f5;
+}
+
+.fund-table td:last-child {
+    white-space: nowrap;
+}
+
+/* NO SEARCH RESULTS */
+
+.no-results {
+    display: none;
+    text-align: center;
+    padding: 20px;
+    font-size: 14px;
+    color: #666666;
+}
+
+/* FOOTER */
+
+footer {
+    margin-top: 55px;
+    padding: 20px 0 10px;
+
+    font-size: 13px;
+    color: #555555;
+
+    text-align: center;
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+
+    .page {
+        padding: 30px 17px 20px;
+    }
+
+    .logo {
+        width: 105px;
+    }
+
+    h1 {
+        font-size: 25px;
+        margin-bottom: 35px;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+
+    .person-name {
+        font-size: 16px;
+    }
+
+    .person-details {
+        font-size: 14px;
+    }
+
+    .fund-table {
+        font-size: 13px;
+    }
+
+    .fund-table th,
+    .fund-table td
