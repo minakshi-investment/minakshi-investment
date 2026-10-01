@@ -6,194 +6,2782 @@
 
 <title>Minakshi Investment</title>
 
-<meta name="description"
-content="Minakshi Investment - Registered Intermediaries and Empanelled Mutual Fund Companies">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
 
 <style>
+
+:root {
+    --black: #171717;
+    --dark: #222222;
+    --gold: #b4955a;
+    --gold-light: #d4bd87;
+    --cream: #f8f6f1;
+    --white: #ffffff;
+    --muted: #77736b;
+    --border: #e7e2d8;
+    --shadow: 0 20px 50px rgba(0,0,0,0.07);
+}
 
 * {
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     margin: 0;
-    background: #ffffff;
-    color: #111111;
-    font-family: Arial, Helvetica, sans-serif;
+    background: var(--cream);
+    color: var(--black);
+    font-family: "DM Sans", Arial, sans-serif;
 }
 
-.page {
-    width: 100%;
-    max-width: 850px;
-    margin: 0 auto;
-    padding: 45px 25px 25px;
-    text-align: center;
+/* =========================
+   NAVIGATION
+========================= */
+
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    height: 72px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 6%;
+
+    background: rgba(248,246,241,0.94);
+    backdrop-filter: blur(14px);
+
+    border-bottom: 1px solid rgba(0,0,0,0.06);
 }
 
-/* LOGO */
-
-.logo {
-    display: block;
-    width: 125px;
-    height: auto;
-    margin: 0 auto 18px;
+.nav-brand {
+    font-family: "Playfair Display", serif;
+    font-size: 22px;
+    letter-spacing: 0.5px;
 }
 
-/* MAIN TITLE */
+.nav-links {
+    display: flex;
+    gap: 30px;
+}
 
-h1 {
-    margin: 0 0 42px;
-    font-size: 31px;
-    line-height: 1.2;
+.nav-links a {
+    text-decoration: none;
+    color: #444;
+    font-size: 13px;
+    font-weight: 600;
+    transition: color 0.2s ease;
+}
+
+.nav-links a:hover {
+    color: var(--gold);
+}
+
+/* =========================
+   MAIN
+========================= */
+
+.wrapper {
+    width: min(1100px, 90%);
+    margin: auto;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+    min-height: 520px;
+
+    display: flex;
+    align-items: center;
+
+    padding: 80px 0;
+}
+
+.hero-content {
+    max-width: 760px;
+
+    animation: fadeUp 0.8s ease both;
+}
+
+.eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    margin-bottom: 24px;
+
+    color: var(--gold);
+
+    font-size: 12px;
     font-weight: 700;
-    letter-spacing: 1px;
+
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
 }
 
-h2 {
-    margin: 0 0 28px;
-    font-size: 23px;
+.eyebrow-line {
+    width: 42px;
+    height: 1px;
+    background: var(--gold);
+}
+
+.hero h1 {
+    margin: 0;
+
+    font-family: "Playfair Display", serif;
+
+    font-size: clamp(48px, 8vw, 86px);
+    line-height: 0.98;
+
+    font-weight: 500;
+    letter-spacing: -2px;
+}
+
+.hero h1 span {
+    color: var(--gold);
+}
+
+.hero-description {
+    max-width: 590px;
+
+    margin-top: 28px;
+
+    color: #66625b;
+
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+.hero-divider {
+    width: 70px;
+    height: 2px;
+
+    margin-top: 36px;
+
+    background: var(--gold);
+}
+
+/* =========================
+   SECTIONS
+========================= */
+
+.section {
+    padding: 75px 0;
+}
+
+.section-header {
+    margin-bottom: 38px;
+}
+
+.section-label {
+    margin-bottom: 10px;
+
+    color: var(--gold);
+
+    font-size: 11px;
     font-weight: 700;
+
+    letter-spacing: 2px;
+    text-transform: uppercase;
 }
 
-/* REGISTERED INTERMEDIARIES */
+.section-title {
+    margin: 0;
+
+    font-family: "Playfair Display", serif;
+
+    font-size: 42px;
+    font-weight: 500;
+}
+
+.section-subtitle {
+    max-width: 650px;
+
+    margin-top: 12px;
+
+    color: var(--muted);
+
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+/* =========================
+   INTERMEDIARIES
+========================= */
 
 .intermediaries {
-    text-align: left;
-    display: inline-block;
-    width: 100%;
-    max-width: 690px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
 }
 
-.person {
-    margin-bottom: 27px;
+.person-card {
+    position: relative;
+
+    padding: 28px;
+
+    background: var(--white);
+
+    border: 1px solid var(--border);
+
+    border-radius: 4px;
+
+    box-shadow: 0 8px 30px rgba(0,0,0,0.03);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
+}
+
+.person-card:hover {
+    transform: translateY(-5px);
+
+    border-color: var(--gold-light);
+
+    box-shadow: var(--shadow);
+}
+
+.person-number {
+    margin-bottom: 25px;
+
+    color: var(--gold);
+
+    font-size: 11px;
+    font-weight: 700;
+
+    letter-spacing: 1.5px;
 }
 
 .person-name {
-    font-size: 17px;
-    font-weight: 700;
-    margin-bottom: 4px;
+    margin-bottom: 12px;
+
+    font-family: "Playfair Display", serif;
+
+    font-size: 24px;
 }
 
-.person-details {
-    font-size: 15px;
-    line-height: 1.65;
+.person-role {
+    color: #69655e;
+
+    font-size: 13px;
+    line-height: 1.7;
 }
 
-.person-details strong {
-    font-weight: 700;
+.person-registration {
+    margin-top: 20px;
+    padding-top: 17px;
+
+    border-top: 1px solid var(--border);
+
+    color: #444;
+
+    font-size: 13px;
+    line-height: 1.8;
 }
 
-/* EMPANELLED FUNDS */
-
-.empanelled {
-    margin-top: 52px;
-    text-align: left;
+.person-registration strong {
+    color: var(--black);
 }
 
-.empanelled h2 {
-    text-align: center;
-    margin-bottom: 22px;
+/* =========================
+   EMPANELLED SECTION
+========================= */
+
+.directory {
+    background: var(--black);
+
+    padding: 75px 0;
+
+    color: var(--white);
 }
 
-/* SEARCH */
+.directory .section-label {
+    color: var(--gold-light);
+}
+
+.directory .section-title {
+    color: white;
+}
+
+.directory .section-subtitle {
+    color: #aaa69e;
+}
+
+/* Search */
 
 .search-box {
-    width: 100%;
-    padding: 11px 13px;
-    margin-bottom: 18px;
+    position: relative;
 
-    border: 1px solid #cfcfcf;
-    border-radius: 4px;
+    margin-bottom: 20px;
+}
+
+.search-box input {
+    width: 100%;
+
+    padding: 18px 20px 18px 48px;
+
+    border: 1px solid #393939;
+
+    border-radius: 3px;
+
+    outline: none;
+
+    background: #202020;
+
+    color: white;
 
     font-family: inherit;
     font-size: 14px;
 
-    outline: none;
+    transition: border-color 0.2s ease;
 }
 
-.search-box:focus {
-    border-color: #777777;
+.search-box input:focus {
+    border-color: var(--gold);
 }
 
-/* TABLE */
+.search-box input::placeholder {
+    color: #85827c;
+}
 
-.fund-table {
+.search-icon {
+    position: absolute;
+
+    left: 18px;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    color: var(--gold);
+
+    font-size: 16px;
+}
+
+/* Directory box */
+
+.directory-box {
+    overflow: hidden;
+
+    background: #1d1d1d;
+
+    border: 1px solid #343434;
+
+    border-radius: 4px;
+}
+
+/* Scroll */
+
+.company-list {
+    max-height: 520px;
+
+    overflow-y: auto;
+}
+
+.company-list::-webkit-scrollbar {
+    width: 7px;
+}
+
+.company-list::-webkit-scrollbar-track {
+    background: #181818;
+}
+
+.company-list::-webkit-scrollbar-thumb {
+    background: #555;
+    border-radius: 10px;
+}
+
+.company-list::-webkit-scrollbar-thumb:hover {
+    background: var(--gold);
+}
+
+/* Company */
+
+.company-item {
+    border-bottom: 1px solid #303030;
+}
+
+.company-item:last-child {
+    border-bottom: none;
+}
+
+.company-button {
     width: 100%;
-    border-collapse: collapse;
-    font-size: 14px;
-}
 
-.fund-table th,
-.fund-table td {
-    border: 1px solid #d8d8d8;
-    padding: 10px 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 19px 22px;
+
+    border: none;
+
+    background: transparent;
+
+    color: #eeeeee;
+
+    cursor: pointer;
+
     text-align: left;
-    vertical-align: top;
-}
 
-.fund-table th {
-    font-weight: 700;
-    background: #f5f5f5;
-}
-
-.fund-table td:last-child {
-    white-space: nowrap;
-}
-
-/* NO SEARCH RESULTS */
-
-.no-results {
-    display: none;
-    text-align: center;
-    padding: 20px;
+    font-family: inherit;
     font-size: 14px;
-    color: #666666;
+    font-weight: 500;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease;
 }
 
-/* FOOTER */
+.company-button:hover {
+    background: #252525;
+    color: var(--gold-light);
+}
 
-footer {
-    margin-top: 55px;
-    padding: 20px 0 10px;
+.company-button.active {
+    background: #252525;
+    color: var(--gold-light);
+}
+
+.company-arrow {
+    color: #8f8b84;
 
     font-size: 13px;
-    color: #555555;
 
-    text-align: center;
+    transition: transform 0.3s ease;
 }
 
-/* MOBILE */
+.company-button.active .company-arrow {
+    transform: rotate(180deg);
+}
 
-@media (max-width: 600px) {
+/* Registration */
 
-    .page {
-        padding: 30px 17px 20px;
+.registration {
+    max-height: 0;
+
+    overflow: hidden;
+
+    padding: 0 22px;
+
+    background: #181818;
+
+    color: #aaa69f;
+
+    font-size: 13px;
+
+    transition:
+        max-height 0.35s ease,
+        padding 0.35s ease;
+}
+
+.registration.open {
+    max-height: 100px;
+
+    padding-top: 16px;
+    padding-bottom: 17px;
+}
+
+.registration strong {
+    color: var(--gold-light);
+
+    font-weight: 600;
+}
+
+/* Result count */
+
+.result-count {
+    padding: 13px 0;
+
+    color: #77736c;
+
+    font-size: 12px;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    padding: 45px 0 30px;
+
+    background: #111;
+
+    color: #77736c;
+}
+
+.footer-inner {
+    width: min(1100px, 90%);
+    margin: auto;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 20px;
+}
+
+.footer-brand {
+    font-family: "Playfair Display", serif;
+
+    color: white;
+
+    font-size: 21px;
+}
+
+.footer-copy {
+    font-size: 12px;
+}
+
+/* =========================
+   ANIMATION
+========================= */
+
+@keyframes fadeUp {
+
+    from {
+        opacity: 0;
+        transform: translateY(20px);
     }
 
-    .logo {
-        width: 105px;
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
 
-    h1 {
-        font-size: 25px;
-        margin-bottom: 35px;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 800px) {
+
+    .nav-links {
+        display: none;
     }
 
-    h2 {
-        font-size: 20px;
+    .hero {
+        min-height: 450px;
+        padding: 60px 0;
     }
 
-    .person-name {
-        font-size: 16px;
+    .hero h1 {
+        font-size: 52px;
     }
 
-    .person-details {
+    .section {
+        padding: 55px 0;
+    }
+
+    .section-title {
+        font-size: 34px;
+    }
+
+    .intermediaries {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-inner {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+}
+
+@media (max-width: 500px) {
+
+    .wrapper {
+        width: 88%;
+    }
+
+    .hero h1 {
+        font-size: 45px;
+        letter-spacing: -1px;
+    }
+
+    .hero-description {
         font-size: 14px;
     }
 
-    .fund-table {
-        font-size: 13px;
+    .company-button {
+        padding: 17px;
     }
 
-    .fund-table th,
-    .fund-table td
+    .registration {
+        padding-left: 17px;
+        padding-right: 17px;
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     NAVIGATION
+========================= -->
+
+<nav class="navbar">
+
+    <div class="nav-brand">
+        Minakshi Investment
+    </div>
+
+    <div class="nav-links">
+
+        <a href="#about">
+            About
+        </a>
+
+        <a href="#intermediaries">
+            Intermediaries
+        </a>
+
+        <a href="#companies">
+            Empanelled Companies
+        </a>
+
+    </div>
+
+</nav>
+
+
+<!-- =========================
+     HERO
+========================= -->
+
+<main>
+
+<section class="hero" id="about">
+
+    <div class="wrapper">
+
+        <div class="hero-content">
+
+            <div class="eyebrow">
+
+                <span class="eyebrow-line"></span>
+
+                MINAKSHI INVESTMENT
+
+            </div>
+
+
+            <h1>
+                Building wealth<br>
+                <span>with clarity.</span>
+            </h1>
+
+
+            <p class="hero-description">
+                A professionally managed investment distribution platform
+                offering access to mutual funds and other investment solutions
+                through registered intermediaries.
+            </p>
+
+
+            <div class="hero-divider"></div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     INTERMEDIARIES
+========================= -->
+
+<section class="section" id="intermediaries">
+
+    <div class="wrapper">
+
+        <div class="section-header">
+
+            <div class="section-label">
+                Our Team
+            </div>
+
+            <h2 class="section-title">
+                Registered Intermediaries
+            </h2>
+
+            <p class="section-subtitle">
+                Details of the registered intermediaries associated with
+                Minakshi Investment.
+            </p>
+
+        </div>
+
+
+        <div class="intermediaries">
+
+
+            <!-- SUNIL -->
+
+            <div class="person-card">
+
+                <div class="person-number">
+                    01
+                </div>
+
+                <div class="person-name">
+                    Sunil Kumar Sharma
+                </div>
+
+                <div class="person-role">
+                    AMFI Registered Mutual Fund Distributor
+                </div>
+
+                <div class="person-registration">
+
+                    <strong>ARN</strong><br>
+
+                    49981
+
+                </div>
+
+            </div>
+
+
+            <!-- SALONI -->
+
+            <div class="person-card">
+
+                <div class="person-number">
+                    02
+                </div>
+
+                <div class="person-name">
+                    Saloni Sharma
+                </div>
+
+                <div class="person-role">
+                    AMFI Registered Mutual Fund Distributor &amp;
+                    SIF Distributor
+                    <br><br>
+                    APMI Registered PMS Distributor
+                </div>
+
+                <div class="person-registration">
+
+                    <strong>ARN</strong><br>
+                    190283
+
+                    <br><br>
+
+                    <strong>PMS</strong><br>
+                    APRN05574
+
+                </div>
+
+            </div>
+
+
+            <!-- ANMOL -->
+
+            <div class="person-card">
+
+                <div class="person-number">
+                    03
+                </div>
+
+                <div class="person-name">
+                    Anmol Sharma
+                </div>
+
+                <div class="person-role">
+                    AMFI Registered Mutual Fund Distributor &amp;
+                    SIF Distributor
+                    <br><br>
+                    APMI Registered PMS Distributor
+                </div>
+
+                <div class="person-registration">
+
+                    <strong>ARN</strong><br>
+                    252225
+
+                    <br><br>
+
+                    <strong>PMS</strong><br>
+                    APRN05573
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     EMPANELLED COMPANIES
+========================= -->
+
+<section class="directory" id="companies">
+
+    <div class="wrapper">
+
+        <div class="section-header">
+
+            <div class="section-label">
+                Investment Partners
+            </div>
+
+            <h2 class="section-title">
+                Empanelled Companies
+            </h2>
+
+            <p class="section-subtitle">
+                Explore the mutual fund companies empanelled with
+                Minakshi Investment. Select any company to view its
+                registration number.
+            </p>
+
+        </div>
+
+
+        <!-- SEARCH -->
+
+        <div class="search-box">
+
+            <span class="search-icon">
+                ⌕
+            </span>
+
+            <input
+                type="text"
+                id="companySearch"
+                placeholder="Search an empanelled company..."
+                onkeyup="searchCompanies()"
+            >
+
+        </div>
+
+
+        <div class="result-count" id="resultCount">
+            61 empanelled companies
+        </div>
+
+
+        <!-- COMPANY DIRECTORY -->
+
+        <div class="directory-box">
+
+            <div class="company-list" id="companyList">
+
+
+                <!-- 360 ONE -->
+
+                <div class="company-item">
+
+                    <button class="company-button"
+                        onclick="toggleCompany(this)">
+
+                        <span>
+                            360 ONE Mutual Fund
+                        </span>
+
+                        <span class="company-arrow">
+                            ↓
+                        </span>
+
+                    </button>
+
+                    <div class="registration">
+
+                        <strong>Registration No.</strong><br>
+
+                        MF/067/11/02
+
+                    </div>
+
+                </div>
+
+
+                <!-- ABAKKUS -->
+
+                <div class="company-item">
+
+                    <button class="company-button"
+                        onclick="toggleCompany(this)">
+
+                        <span>
+                            Abakkus Mutual Fund
+                        </span>
+
+                        <span class="company-arrow">
+                            ↓
+                        </span>
+
+                    </button>
+
+                    <div class="registration">
+
+                        <strong>Registration No.</strong><br>
+
+                        MF/088/25/14
+
+                    </div>
+
+                </div>
+
+
+                <!-- ADITYA BIRLA -->
+
+                <div class="company-item">
+
+                    <button class="company-button"
+                        onclick="toggleCompany(this)">
+
+                        <span>
+                            ADITYA BIRLA SUN LIFE MF
+                        </span>
+
+                        <span class="company-arrow">
+                            ↓
+                        </span>
+
+                    </button>
+
+                    <div class="registration">
+
+                        <strong>Registration No.</strong><br>
+
+                        MF/020/94/8
+
+                    </div>
+
+                </div>
+
+
+                <!-- ALPHAGREP -->
+
+                <div class="company-item">
+
+                    <button class="company-button"
+                        onclick="toggleCompany(this)">
+
+                        <span>
+                            AlphaGrep Mutual Fund
+                        </span>
+
+                        <span class="company-arrow">
+                            ↓
+                        </span>
+
+                    </button>
+
+                    <div class="registration">
+
+                        <strong>Registration No.</strong><br>
+
+                        MF/090/26/16
+
+                    </div>
+
+                </div>
+
+
+                <!-- ANGEL ONE -->
+
+                <div class="company-item">
+
+                    <button class="company-button"
+                        onclick="toggleCompany(this)">
+
+                        <span>
+                            Angel One Mutual Fund
+                        </span>
+
+                        <span class="company-arrow">
+                            ↓
+                        </span>
+
+                    </button>
+
+                    <div class="registration">
+
+                        <strong>Registration No.</strong><br>
+
+                        MF/083/24/09
+
+                    </div>
+
+                </div>
+
+
+                <!-- ASK -->
+
+                <div class="company-item">
+
+                    <button class="company-button"
+                        onclick="toggleCompany(this)">
+
+                        <span>
+                            ASK Mutual Fund
+                        </span>
+
+                        <span class="company-arrow">
+                            ↓
+                        </span>
+
+                    </button>
+
+                    <div class="registration">
+
+                        <strong>Registration No.</strong><br>
+
+                        MF/089/26/15
+
+                    </div>
+
+                </div>
+
+
+                <!-- AXIS -->
+
+                <div class="company-item">
+
+                    <button class="company-button"
+                        onclick="toggleCompany(this)">
+
+                        <span>
+                            AXIS MF
+                        </span>
+
+                        <span class="company-arrow">
+                            ↓
+                        </span>
+
+                    </button>
+
+                    <div class="registration">
+
+                        <strong>Registration No.</strong><br>
+
+                        MF/061/09/02
+
+                    </div>
+
+                </div>
+
+
+                <!-- BAJAJ -->
+
+                <div class="company-item">
+
+                    <button class="company-button"
+                        onclick="toggleCompany(this)">
+
+                        <span>
+                            BAJAJ FINSERV MUTUAL FUND
+                        </span>
+
+                        <span class="company-arrow">
+                            ↓
+                        </span>
+
+                    </button>
+
+                    <div class="registration">
+
+                        <strong>Registration No.</strong><br>
+
+                        MF/078/23/04
+
+                    </div>
+
+                </div>
+
+
+                <!-- BANDHAN -->
+
+                <div class="company-item">
+
+                    <button class="company-button"
+                        onclick="toggleCompany(this)">
+
+                        <span>
+                            Bandhan Mutual Fund
+                        </span>
+
+                        <span class="company-arrow">
+                            ↓
+                        </span>
+
+                    </button>
+
+                    <div class="registration">
+
+                        <strong>Registration No.</strong><br>
+
+                        MF/042/00/3
+
+                    </div>
+
+                </div>
+
+
+                <!-- BANK OF INDIA -->
+
+                <div class="company-item">
+
+                    <button class="company-button"
+                        onclick="toggleCompany(this)">
+
+                        <span>
+                            Bank of India Mutual Fund
+                        </span>
+
+                        <span class="company-arrow">
+                            ↓
+                        </span>
+
+                    </button>
+
+                    <div class="registration">
+
+                        <strong>Registration No.</strong><br>
+
+                        MF/056/08/01
+
+                    </div>
+
+                </div>
+
+
+                <!-- BARODA -->
+
+                <div class="company-item">
+
+                    <button class="company-button"
+                        onclick="toggleCompany(this)">
+
+                        <span>
+                            Baroda BNP Paribas Mutual Fund
+                        </span>
+
+                        <span class="company-arrow">
+                            ↓
+                        </span>
+
+                    </button>
+
+                    <div class="registration">
+
+                        <strong>Registration No.</strong><br>
+
+                        MF/018/94/2
+
+                    </div>
+
+                </div>
+
+
+                <!-- CANARA -->
+
+                <div class="company-item">
+
+                    <button class="company-button"
+                        onclick="toggleCompany(this)">
+
+                        <span>
+                            CANARA ROBECO MF
+                        </span>
+
+                        <span class="company-arrow">
+                            ↓
+                        </span>
+
+                    </button>
+
+                    <div class="registration">
+
+                        <strong>Registration No.</strong><br>
+
+                        MF/004/93/4
+
+                    </div>
+
+                </div>
+
+
+                <!-- CAPITALMIND -->
+
+                <div class="company-item">
+
+                    <button class="company-button"
+                        onclick="toggleCompany(this)">
+
+                        <span>
+                            Capitalmind Mutual Fund
+                        </span>
+
+                        <span class="company-arrow">
+                            ↓
+                        </span>
+
+                    </button>
+
+                    <div class="registration">
+
+                        <strong>Registration No.</strong><br>
+
+                        MF/084/25/10
+
+                    </div>
+
+                </div>
+
+
+                <!-- CARNELIAN -->
+
+                <div class="company-item">
+
+                    <button class="company-button"
+                        onclick="toggleCompany(this)">
+
+                        <span>
+                            Carnelian Mutual Fund
+                        </span>
+
+                        <span class="company-arrow">
+                            ↓
+                        </span>
+
+                    </button>
+
+                    <div class="registration">
+
+                        <strong>Registration No.</strong><br>
+
+                        MF/094/26/20
+
+                    </div>
+
+                </div>
+
+
+                <!-- CHOICE -->
+
+                <div class="company-item">
+
+                    <button class="company-button"
+                        onclick="toggleCompany(this)">
+
+                        <span>
+                            Choice Mutual Fund
+                        </span>
+
+                        <span class="company-arrow">
+                            ↓
+                        </span>
+
+                    </button>
+
+                    <div class="registration">
+
+                        <strong>Registration No.</strong><br>
+
+                        MF/087/25/13
+
+                    </div>
+
+                </div>
+
+
+                <!-- CRB -->
+
+                <div class="company-item">
+
+                    <button class="company-button"
+                        onclick="toggleCompany(this)">
+
+                        <span>
+                            CRB MF
+                        </span>
+
+                        <span class="company-arrow">
+                            ↓
+                        </span>
+
+                    </button>
+
+                    <div class="registration">
+
+                        <strong>Registration No.</strong><br>
+
+                        MF/008/93/5
+
+                    </div>
+
+                </div>
+
+
+                <!-- DSP -->
+
+                <div class="company-item">
+
+                    <button class="company-button"
+                        onclick="toggleCompany(this)">
+
+                        <span>
+                            DSP MF
+                        </span>
+
+                        <span class="company-arrow">
+                            ↓
+                        </span>
+
+                    </button>
+
+                    <div class="registration">
+
+                        <strong>Registration No.</strong><br>
+
+                        MF/036/97/7
+
+                    </div>
+
+                </div>
+
+
+                <!-- EDELWEISS -->
+
+                <div class="company-item">
+
+                    <button class="company-button"
+                        onclick="toggleCompany(this)">
+
+                        <span>
+                            EDELWEISS MF
+                        </span>
+
+                        <span class="company-arrow">
+                            ↓
+                        </span>
+
+                    </button>
+
+                    <div class="registration">
+
+                        <strong>Registration No.</strong><br>
+
+                        MF/057/08/02
+
+                    </div>
+
+                </div>
+
+
+                <!-- FRANKLIN -->
+
+                <div class="company-item">
+
+                    <button class="company-button"
+                        onclick="toggleCompany(this)">
+
+                        <span>
+                            FRANKLIN TEMPLETON MF
+                        </span>
+
+                        <span class="company-arrow">
+                            ↓
+                        </span>
+
+                    </button>
+
+                    <div class="registration">
+
+                        <strong>Registration No.</strong><br>
+
+                        MF/026/96/8
+
+                    </div>
+
+                </div>
+
+
+                <!-- GROWW -->
+
+                <div class="company-item">
+
+                    <button class="company-button"
+                        onclick="toggleCompany(this)">
+
+                        <span>
+                            Groww Mutual Fund
+                        </span>
+
+                        <span class="company-arrow">
+                            ↓
+                        </span>
+
+                    </button>
+
+                    <div class="registration">
+
+                        <strong>Registration No.</strong><br>
+
+                        MF/068/11/03
+
+                    </div>
+
+                </div>
+
+
+                <!-- HDFC -->
+
+                <div class="company-item">
+
+                    <button class="company-button"
+                        onclick="toggleCompany(this)">
+
+                        <span>
+                            HDFC MF
+                        </span>
+
+                        <span class="company-arrow">
+                            ↓
+                        </span>
+
+                    </button>
+
+                    <div class="registration">
+
+                        <strong>Registration No.</strong><br>
+
+                        MF/044/00/6
+
+                    </div>
+
+                </div>
+
+
+                <!-- HELIOS -->
+
+                <div class="company-item">
+
+                    <button class="company-button"
+                        onclick="toggleCompany(this)">
+
+                        <span>
+                            Helios Mutual Fund
+                        </span>
+
+                        <span class="company-arrow">
+                            ↓
+                        </span>
+
+                    </button>
+
+                    <div class="registration">
+
+                        <strong>Registration No.</strong><br>
+
+                        MF/079/23/05
+
+                    </div>
+
+                </div>
+
+
+                <!-- HSBC -->
+
+                <div class="company-item">
+
+                    <button class="company-button"
+                        onclick="toggleCompany(this)">
+
+                        <span>
+                            HSBC MF
+                        </span>
+
+                        <span class="company-arrow">
+                            ↓
+                        </span>
+
+                    </button>
+
+                    <div class="registration">
+
+                        <strong>Registration No.</strong><br>
+
+                        MF/046/02/5
+
+                    </div>
+
+                </div>
+
+
+                <!-- ICICI -->
+
+                <div class="company-item">
+
+                    <button class="company-button"
+                        onclick="toggleCompany(this)">
+
+                        <span>
+                            ICICI PRUDENTIAL MF
+                        </span>
+
+                        <span class="company-arrow">
+                            ↓
+                        </span>
+
+                    </button>
+
+                    <div class="registration">
+
+                        <strong>Registration No.</strong><br>
+
+                        MF/003/93/6
+
+                    </div>
+
+                </div>
+
+
+                <!-- IDBI -->
+
+                <div class="company-item">
+
+                    <button class="company-button"
+                        onclick="toggleCompany(this)">
+
+                        <span>
+                            IDBI MUTUAL FUND
+                        </span>
+
+                        <span class="company-arrow">
+                            ↓
+                        </span>
+
+                    </button>
+
+                    <div class="registration">
+
+                        <strong>Registration No.</strong><br>
+
+                        MF/064/10/01
+
+                    </div>
+
+                </div>
+
+
+                <!-- IIFCL -->
+
+                <div class="company-item">
+
+                    <button class="company-button"
+                        onclick="toggleCompany(this)">
+
+                        <span>
+                            IIFCL MF (IDF)
+                        </span>
+
+                        <span class="company-arrow">
+                            ↓
+                        </span>
+
+                    </button>
+
+                    <div class="registration">
+
+                        <strong>Registration No.</strong><br>
+
+                        MF/071/13/01
+
+                    </div>
+
+                </div>
+
+
+                <!-- IL&FS -->
+
+                <div class="company-item">
+
+                    <button class="company-button"
+                        onclick="toggleCompany(this)">
+
+                        <span>
+                            IL&amp;FS IDF MF
+                        </span>
+
+                        <span class="company-arrow">
+                            ↓
+                        </span>
+
+                    </button>
+
+                    <div class="registration">
+
+                        <strong>Registration No.</strong><br>
+
+                        MF/072/13/02
+
+                    </div>
+
+                </div>
+
+
+                <!-- INVESCO -->
+
+                <div class="company-item">
+
+                    <button class="company-button"
+                        onclick="toggleCompany(this)">
+
+                        <span>
+                            Invesco Mutual Fund
+                        </span>
+
+                        <span class="company-arrow">
+                            ↓
+                        </span>
+
+                    </button>
+
+                    <div class="registration">
+
+                        <strong>Registration No.</strong><br>
+
+                        MF/052/06/01
+
+                    </div>
+
+                </div>
+
+
+                <!-- ITI -->
+
+                <div class="company-item">
+
+                    <button class="company-button"
+                        onclick="toggleCompany(this)">
+
+                        <span>
+                            ITI Mutual Fund
+                        </span>
+
+                        <span class="company-arrow">
+                            ↓
+                        </span>
+
+                    </button>
+
+                    <div class="registration">
+
+                        <strong>Registration No.</strong><br>
+
+                        MF/073/18/01
+
+                    </div>
+
+                </div>
+
+
+                <!-- JIO BLACKROCK -->
+
+                <div class="company-item">
+
+                    <button class="company-button"
+                        onclick="toggleCompany(this)">
+
+                        <span>
+                            Jio BlackRock Mutual Fund
+                        </span>
+
+                        <span class="company-arrow">
+                            ↓
+                        </span>
+
+                    </button>
+
+                    <div class="registration">
+
+                        <strong>Registration No.</strong><br>
+
+                        MF/085/25/11
+
+                    </div>
+
+                </div>
+
+
+                <!-- JM -->
+
+                <div class="company-item">
+
+                    <button class="company-button"
+                        onclick="toggleCompany(this)">
+
+                        <span>
+                            JM FINANCIAL MF
+                        </span>
+
+                        <span class="company-arrow">
+                            ↓
+                        </span>
+
+                    </button>
+
+                    <div class="registration">
+
+                        <strong>Registration No.</strong><br>
+
+                        MF/015/94/8
+
+                    </div>
+
+                </div>
+
+
+                <!-- KOTAK -->
+
+                <div class="company-item">
+
+                    <button class="company-button"
+                        onclick="toggleCompany(this)">
+
+                        <span>
+                            Kotak Mutual Fund
+                        </span>
+
+                        <span class="company-arrow">
+                            ↓
+                        </span>
+
+                    </button>
+
+                    <div class="registration">
+
+                        <strong>Registration No.</strong><br>
+
+                        MF/038/98/1
+
+                    </div>
+
+                </div>
+
+
+                <!-- LAKSHYA -->
+
+                <div class="company-item">
+
+                    <button class="company-button"
+                        onclick="toggleCompany(this)">
+
+                        <span>
+                            Lakshya Mutual Fund
+                        </span>
+
+                        <span class="company-arrow">
+                            ↓
+                        </span>
+
+                    </button>
+
+                    <div class="registration">
+
+                        <strong>Registration No.</strong><br>
+
+                        MF/091/26/17
+
+                    </div>
+
+                </div>
+
+
+                <!-- LIC -->
+
+                <div class="company-item">
+
+                    <button class="company-button"
+                        onclick="toggleCompany(this)">
+
+                        <span>
+                            LIC MF
+                        </span>
+
+                        <span class="company-arrow">
+                            ↓
+                        </span>
+
+                    </button>
+
+                    <div class="registration">
+
+                        <strong>Registration No.</strong><br>
+
+                        MF/012/94/5
+
+                    </div>
+
+                </div>
+
+
+                <!-- MAHINDRA -->
+
+                <div class="company-item">
+
+                    <button class="company-button"
+                        onclick="toggleCompany(this)">
+
+                        <span>
+                            Mahindra Manulife Mutual Fund
+                        </span>
+
+                        <span class="company-arrow">
+                            ↓
+                        </span>
+
+                    </button>
+
+                    <div class="registration">
+
+                        <strong>Registration No.</strong><br>
+
+                        MF/069/16/01
+
+                    </div>
+
+                </div>
+
+
+                <!-- MARCELLUS -->
+
+                <div class="company-item">
+
+                    <button class="company-button"
+                        onclick="toggleCompany(this)">
+
+                        <span>
+                            Marcellus Mutual Fund
+                        </span>
+
+                        <span class="company-arrow">
+                            ↓
+                        </span>
+
+                    </button>
+
+                    <div class="registration">
+
+                        <strong>Registration No.</strong><br>
+
+                        MF/095/26/21
+
+                    </div>
+
+                </div>
+
+
+                <!-- MIRAE -->
+
+                <div class="company-item">
+
+                    <button class="company-button"
+                        onclick="toggleCompany(this)">
+
+                        <span>
+                            MIRAE ASSET MF
+                        </span>
+
+                        <span class="company-arrow">
+                            ↓
+                        </span>
+
+                    </button>
+
+                    <div class="registration">
+
+                        <strong>Registration No.</strong><br>
+
+                        MF/055/07/03
+
+                    </div>
+
+                </div>
+
+
+                <!-- MONARCH -->
+
+                <div class="company-item">
+
+                    <button class="company-button"
+                        onclick="toggleCompany(this)">
+
+                        <span>
+                            Monarch Mutual Fund
+                        </span>
+
+                        <span class="company-arrow">
+                            ↓
+                        </span>
+
+                    </button>
+
+                    <div class="registration">
+
+                        <strong>Registration No.</strong><br>
+
+                        MF/092/26/18
+
+                    </div>
+
+                </div>
+
+
+                <!-- MOTILAL -->
+
+                <div class="company-item">
+
+                    <button class="company-button"
+                        onclick="toggleCompany(this)">
+
+                        <span>
+                            MOTILAL OSWAL MF
+                        </span>
+
+                        <span class="company-arrow">
+                            ↓
+                        </span>
+
+                    </button>
+
+                    <div class="registration">
+
+                        <strong>Registration No.</strong><br>
+
+                        MF/063/09/04
+
+                    </div>
+
+                </div>
+
+
+                <!-- NJ -->
+
+                <div class="company-item">
+
+                    <button class="company-button"
+                        onclick="toggleCompany(this)">
+
+                        <span>
+                            N J Mutual Fund
+                        </span>
+
+                        <span class="company-arrow">
+                            ↓
+                        </span>
+
+                    </button>
+
+                    <div class="registration">
+
+                        <strong>Registration No.</strong><br>
+
+                        MF/076/21/02
+
+                    </div>
+
+                </div>
+
+
+                <!-- NAVI -->
+
+                <div class="company-item">
+
+                    <button class="company-button"
+                        onclick="toggleCompany(this)">
+
+                        <span>
+                            NAVI MUTUAL FUND
+                        </span>
+
+                        <span class="company-arrow">
+                            ↓
+                        </span>
+
+                    </button>
+
+                    <div class="registration">
+
+                        <strong>Registration No.</strong><br>
+
+                        MF/062/09/03
+
+                    </div>
+
+                </div>
+
+
+                <!-- NIPPON -->
+
+                <div class="company-item">
+
+                    <button class="company-button"
+                        onclick="toggleCompany(this)">
+
+                        <span>
+                            Nippon India Mutual Fund
+                        </span>
+
+                        <span class="company-arrow">
+                            ↓
+                        </span>
+
+                    </button>
+
+                    <div class="registration">
+
+                        <strong>Registration No.</strong><br>
+
+                        MF/022/95/1
+
+                    </div>
+
+                </div>
+
+
+                <!-- NUVAMA -->
+
+                <div class="company-item">
+
+                    <button class="company-button"
+                        onclick="toggleCompany(this)">
+
+                        <span>
+                            Nuvama Mutual Fund
+                        </span>
+
+                        <span class="company-arrow">
+                            ↓
+                        </span>
+
+                    </button>
+
+                    <div class="registration">
+
+                        <strong>Registration No.</strong><br>
+
+                        MF/093/26/19
+
+                    </div>
+
+                </div>
+
+
+                <!-- OLD BRIDGE -->
+
+                <div class="company-item">
+
+                    <button class="company-button"
+                        onclick="toggleCompany(this)">
+
+                        <span>
+                            Old Bridge Mutual Fund
+                        </span>
+
+                        <span class="company-arrow">
+                            ↓
+                        </span>
+
+                    </button>
+
+                    <div class="registration">
+
+                        <strong>Registration No.</strong><br>
+
+                        MF/081/23/07
+
+                    </div>
+
+                </div>
+
+
+                <!-- PGIM -->
+
+                <div class="company-item">
+
+                    <button class="company-button"
+                        onclick="toggleCompany(this)">
+
+                        <span>
+                            PGIM INDIA MUTUAL FUND
+                        </span>
+
+                        <span class="company-arrow">
+                            ↓
+                        </span>
+
+                    </button>
+
+                    <div class="registration">
+
+                        <strong>Registration No.</strong><br>
+
+                        MF/065/10/02
+
+                    </div>
+
+                </div>
+
+
+                <!-- PPFAS -->
+
+                <div class="company-item">
+
+                    <button class="company-button"
+                        onclick="toggleCompany(this)">
+
+                        <span>
+                            PPFAS MF
+                        </span>
+
+                        <span class="company-arrow">
+                            ↓
+                        </span>
+
+                    </button>
+
+                    <div class="registration">
+
+                        <strong>Registration No.</strong><br>
+
+                        MF/069/12/01
+
+                    </div>
+
+                </div>
+
+
+                <!-- QUANT -->
+
+                <div class="company-item">
+
+                    <button class="company-button"
+                        onclick="toggleCompany(this)">
+
+                        <span>
+                            Quant Mutual Fund
+                        </span>
+
+                        <span class="company-arrow">
+                            ↓
+                        </span>
+
+                    </button>
+
+                    <div class="registration">
+
+                        <strong>Registration No.</strong><br>
+
+                        MF/028/96/4
+
+                    </div>
+
+                </div>
+
+
+                <!-- QUANTUM -->
+
+                <div class="company-item">
+
+                    <button class="company-button"
+                        onclick="toggleCompany(this)">
+
+                        <span>
+                            QUANTUM MF
+                        </span>
+
+                        <span class="company-arrow">
+                            ↓
+                        </span>
+
+                    </button>
+
+                    <div class="registration">
+
+                        <strong>Registration No.</strong><br>
+
+                        MF/051/05/02
+
+                    </div>
+
+                </div>
+
+
+                <!-- SAMCO -->
+
+                <div class="company-item">
+
+                    <button class="company-button"
+                        onclick="toggleCompany(this)">
+
+                        <span>
+                            SAMCO MUTUAL FUND
+                        </span>
+
+                        <span class="company-arrow">
+                            ↓
+                        </span>
+
+                    </button>
+
+                    <div class="registration">
+
+                        <strong>Registration No.</strong><br>
+
+                        MF/077/21/03
+
+                    </div>
+
+                </div>
+
+
+                <!-- SBI -->
+
+                <div class="company-item">
+
+                    <button class="company-button"
+                        onclick="toggleCompany(this)">
+
+                        <span>
+                            SBI MF
+                        </span>
+
+                        <span class="company-arrow">
+                            ↓
+                        </span>
+
+                    </button>
+
+                    <div class="registration">
+
+                        <strong>Registration No.</strong><br>
+
+                        MF/009/93/3
+
+                    </div>
+
+                </div>
+
+
+                <!-- SHRIRAM -->
+
+                <div class="company-item">
+
+                    <button class="company-button"
+                        onclick="toggleCompany(this)">
+
+                        <span>
+                            SHRIRAM MF
+                        </span>
+
+                        <span class="company-arrow">
+                            ↓
+                        </span>
+
+                    </button>
+
+                    <div class="registration">
+
+                        <strong>Registration No.</strong><br>
+
+                        MF/017/94/4
+
+                    </div>
+
+                </div>
+
+
+                <!-- SUNDARAM -->
+
+                <div class="company-item">
+
+                    <button class="company-button"
+                        onclick="toggleCompany(this)">
+
+                        <span>
+                            SUNDARAM MF
+                        </span>
+
+                        <span class="company-arrow">
+                            ↓
+                        </span>
+
+                    </button>
+
+                    <div class="registration">
+
+                        <strong>Registration No.</strong><br>
+
+                        MF/034/97/2
+
+                    </div>
+
+                </div>
+
+
+                <!-- TATA -->
+
+                <div class="company-item">
+
+                    <button class="company-button"
+                        onclick="toggleCompany(this)">
+
+                        <span>
+                            Tata Mutual Fund
+                        </span>
+
+                        <span class="company-arrow">
+                            ↓
+                        </span>
+
+                    </button>
+
+                    <div class="registration">
+
+                        <strong>Registration No.</strong><br>
+
+                        MF/023/95/9
+
+                    </div>
+
+                </div>
+
+
+                <!-- TAURUS -->
+
+                <div class="company-item">
+
+                    <button class="company-button"
+                        onclick="toggleCompany(this)">
+
+                        <span>
+                            TAURUS MF
+                        </span>
+
+                        <span class="company-arrow">
+                            ↓
+                        </span>
+
+                    </button>
+
+                    <div class="registration">
+
+                        <strong>Registration No.</strong><br>
+
+                        MF/002/93/
+
+                    </div>
+
+                </div>
+
+
+                <!-- WEALTH COMPANY -->
+
+                <div class="company-item">
+
+                    <button class="company-button"
+                        onclick="toggleCompany(this)">
+
+                        <span>
+                            The Wealth Company Mutual Fund
+                        </span>
+
+                        <span class="company-arrow">
+                            ↓
+                        </span>
+
+                    </button>
+
+                    <div class="registration">
+
+                        <strong>Registration No.</strong><br>
+
+                        MF/086/25/12
+
+                    </div>
+
+                </div>
+
+
+                <!-- TRUST -->
+
+                <div class="company-item">
+
+                    <button class="company-button"
+                        onclick="toggleCompany(this)">
+
+                        <span>
+                            TRUST MUTUAL FUND
+                        </span>
+
+                        <span class="company-arrow">
+                            ↓
+                        </span>
+
+                    </button>
+
+                    <div class="registration">
+
+                        <strong>Registration No.</strong><br>
+
+                        MF/075/19/01
+
+                    </div>
+
+                </div>
+
+
+                <!-- UNIFI -->
+
+                <div class="company-item">
+
+                    <button class="company-button"
+                        onclick="toggleCompany(this)">
+
+                        <span>
+                            Unifi Mutual Fund
+                        </span>
+
+                        <span class="company-arrow">
+                            ↓
+                        </span>
+
+                    </button>
+
+                    <div class="registration">
+
+                        <strong>Registration No.</strong><br>
+
+                        MF/082/24/08
+
+                    </div>
+
+                </div>
+
+
+                <!-- UNION -->
+
+                <div class="company-item">
+
+                    <button class="company-button"
+                        onclick="toggleCompany(this)">
+
+                        <span>
+                            Union Mutual Fund
+                        </span>
+
+                        <span class="company-arrow">
+                            ↓
+                        </span>
+
+                    </button>
+
+                    <div class="registration">
+
+                        <strong>Registration No.</strong><br>
+
+                        MF/066/11/01
+
+                    </div>
+
+                </div>
+
+
+                <!-- UTI -->
+
+                <div class="company-item">
+
+                    <button class="company-button"
+                        onclick="toggleCompany(this)">
+
+                        <span>
+                            UTI MF
+                        </span>
+
+                        <span class="company-arrow">
+                            ↓
+                        </span>
+
+                    </button>
+
+                    <div class="registration">
+
+                        <strong>Registration No.</strong><br>
+
+                        MF/048/03/01
+
+                    </div>
+
+                </div>
+
+
+                <!-- WHITEOAK -->
+
+                <div class="company-item">
+
+                    <button class="company-button"
+                        onclick="toggleCompany(this)">
+
+                        <span>
+                            WhiteOak Capital Mutual Fund
+                        </span>
+
+                        <span class="company-arrow">
+                            ↓
+                        </span>
+
+                    </button>
+
+                    <div class="registration">
+
+                        <strong>Registration No.</strong><br>
+
+                        MF/074/18/02
+
+                    </div>
+
+                </div>
+
+
+                <!-- ZERODHA -->
+
+                <div class="company-item">
+
+                    <button class="company-button"
+                        onclick="toggleCompany(this)">
+
+                        <span>
+                            Zerodha Mutual Fund
+                        </span>
+
+                        <span class="company-arrow">
+                            ↓
+                        </span>
+
+                    </button>
+
+                    <div class="registration">
+
+                        <strong>Registration No.</strong><br>
+
+                        MF/080/23/06
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+</main>
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+    <div class="footer-inner">
+
+        <div class="footer-brand">
+            Minakshi Investment
+        </div>
+
+        <div class="footer-copy">
+            © 2026 Minakshi Investment | All Rights Reserved
+        </div>
+
+    </div>
+
+</footer>
+
+
+<script>
+
+/* ==================================
+   COMPANY ACCORDION
+================================== */
+
+function toggleCompany(button) {
+
+    const currentRegistration =
+        button.nextElementSibling;
+
+    const isCurrentlyOpen =
+        currentRegistration.classList.contains("open");
+
+
+    /*
+       Close every company first
+    */
+
+    document
+        .querySelectorAll(".registration")
+        .forEach(function(registration) {
+
+            registration.classList.remove("open");
+
+        });
+
+
+    document
+        .querySelectorAll(".company-button")
+        .forEach(function(companyButton) {
+
+            companyButton.classList.remove("active");
+
+        });
+
+
+    /*
+       Open clicked company
+    */
+
+    if (!isCurrentlyOpen) {
+
+        currentRegistration.classList.add("open");
+
+        button.classList.add("active");
+
+    }
+
+}
+
+
+/* ==================================
+   SEARCH
+================================== */
+
+function searchCompanies() {
+
+    const search =
+        document
+        .getElementById("companySearch")
+        .value
+        .toLowerCase()
+        .trim();
+
+
+    const companies =
+        document
+        .querySelectorAll(".company-item");
+
+
+    let visibleCount = 0;
+
+
+    companies.forEach(function(company) {
+
+        const name =
+            company
+            .querySelector(".company-button span")
+            .textContent
+            .toLowerCase();
+
+
+        const registration =
+            company
+            .querySelector(".registration")
+            .textContent
+            .toLowerCase();
+
+
+        if (
+            name.includes(search) ||
+            registration.includes(search)
+        ) {
+
+            company.style.display = "";
+
+            visibleCount++;
+
+        } else {
+
+            company.style.display = "none";
+
+        }
+
+    });
+
+
+    document
+        .getElementById("resultCount")
+        .textContent =
+        visibleCount +
+        (visibleCount === 1
+            ? " company"
+            : " companies") +
+        " found";
+
+}
+
+
+/* ==================================
+   NAVIGATION
+================================== */
+
+document
+    .querySelectorAll(".nav-links a")
+    .forEach(function(link) {
+
+        link.addEventListener("click", function() {
+
+            const target =
+                document.querySelector(
+                    link.getAttribute("href")
+                );
+
+            if (target) {
+
+                target.scrollIntoView({
+                    behavior: "smooth"
+                });
+
+            }
+
+        });
+
+    });
+
+</script>
+
+
+</body>
+    </html>
