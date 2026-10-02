@@ -1,2167 +1,1194 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
-
-    <meta name="description"
-          content="Minakshi Investment - Mutual Funds, SIF and PMS distribution services.">
-
-    <title>Minakshi Investment</title>
-
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
-          rel="stylesheet">
-
-    <style>
-
-        /* =========================
-           GLOBAL
-        ========================== */
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: "DM Sans", sans-serif;
-            background: #f7f5f0;
-            color: #161616;
-            line-height: 1.6;
-        }
-
-        a {
-            color: inherit;
-            text-decoration: none;
-        }
-
-        button,
-        input {
-            font-family: inherit;
-        }
-
-
-        /* =========================
-           VARIABLES
-        ========================== */
-
-        :root {
-            --black: #111111;
-            --dark: #181818;
-            --gold: #b28a45;
-            --gold-light: #d5b77a;
-            --cream: #f7f5f0;
-            --white: #ffffff;
-            --grey: #6e6e6e;
-            --light-grey: #e6e2d9;
-            --border: rgba(0,0,0,0.09);
-        }
-
-
-        /* =========================
-           NAVBAR
-        ========================== */
-
-        nav {
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-
-            background: rgba(247,245,240,0.94);
-            backdrop-filter: blur(14px);
-
-            border-bottom: 1px solid var(--border);
-        }
-
-        .nav-container {
-            max-width: 1200px;
-            margin: auto;
-
-            padding: 18px 30px;
-
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .nav-brand {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-
-            font-weight: 700;
-            letter-spacing: 1px;
-        }
-
-        .nav-logo {
-            width: 42px;
-            height: 42px;
-
-            object-fit: contain;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 32px;
-
-            font-size: 14px;
-            font-weight: 500;
-        }
-
-        .nav-links a {
-            transition: 0.25s ease;
-        }
-
-        .nav-links a:hover {
-            color: var(--gold);
-        }
-
-
-        /* =========================
-           HERO
-        ========================== */
-
-        .hero {
-            max-width: 1200px;
-            margin: auto;
-
-            padding: 105px 30px 95px;
-
-            display: grid;
-            grid-template-columns: 1.3fr 0.7fr;
-            gap: 70px;
-
-            align-items: center;
-        }
-
-        .hero-small {
-            color: var(--gold);
-
-            text-transform: uppercase;
-            letter-spacing: 3px;
-
-            font-size: 12px;
-            font-weight: 700;
-
-            margin-bottom: 18px;
-        }
-
-        .hero h1 {
-            font-family: "Playfair Display", serif;
-
-            font-size: clamp(48px, 7vw, 82px);
-
-            line-height: 1.03;
-
-            font-weight: 600;
-
-            margin-bottom: 28px;
-        }
-
-        .hero h1 span {
-            color: var(--gold);
-        }
-
-        .hero-description {
-            max-width: 600px;
-
-            color: #606060;
-
-            font-size: 17px;
-            line-height: 1.8;
-        }
-
-        .hero-side {
-            border-left: 1px solid var(--light-grey);
-
-            padding-left: 40px;
-        }
-
-        .hero-side-number {
-            font-family: "Playfair Display", serif;
-
-            font-size: 65px;
-            line-height: 1;
-
-            color: var(--gold);
-
-            margin-bottom: 12px;
-        }
-
-        .hero-side-text {
-            color: var(--grey);
-
-            font-size: 14px;
-            line-height: 1.7;
-        }
-
-
-        /* =========================
-           SECTION
-        ========================== */
-
-        section {
-            padding: 90px 30px;
-        }
-
-        .section-container {
-            max-width: 1200px;
-            margin: auto;
-        }
-
-        .section-label {
-            color: var(--gold);
-
-            text-transform: uppercase;
-            letter-spacing: 2.5px;
-
-            font-size: 11px;
-            font-weight: 700;
-
-            margin-bottom: 12px;
-        }
-
-        .section-title {
-            font-family: "Playfair Display", serif;
-
-            font-size: clamp(35px, 5vw, 52px);
-
-            line-height: 1.15;
-
-            margin-bottom: 18px;
-        }
-
-        .section-description {
-            color: var(--grey);
-
-            max-width: 650px;
-
-            margin-bottom: 50px;
-        }
-
-
-        /* =========================
-           INTERMEDIARIES
-        ========================== */
-
-        .intermediaries {
-            background: #ffffff;
-        }
-
-        .intermediary-grid {
-            display: grid;
-
-            grid-template-columns:
-                repeat(3, 1fr);
-
-            gap: 20px;
-        }
-
-        .intermediary-card {
-            position: relative;
-
-            background: #faf9f6;
-
-            border: 1px solid var(--light-grey);
-
-            padding: 34px;
-
-            min-height: 250px;
-
-            transition:
-                transform 0.3s ease,
-                box-shadow 0.3s ease,
-                border-color 0.3s ease;
-        }
-
-        .intermediary-card:hover {
-            transform: translateY(-5px);
-
-            border-color: var(--gold);
-
-            box-shadow:
-                0 15px 35px rgba(0,0,0,0.07);
-        }
-
-        .card-number {
-            font-family: "Playfair Display", serif;
-
-            font-size: 20px;
-
-            color: var(--gold);
-
-            margin-bottom: 20px;
-        }
-
-        .intermediary-card h3 {
-            font-size: 20px;
-
-            margin-bottom: 12px;
-        }
-
-        .intermediary-card p {
-            color: var(--grey);
-
-            font-size: 14px;
-
-            line-height: 1.8;
-        }
-
-        .registration {
-            margin-top: 20px;
-
-            display: flex;
-            flex-direction: column;
-
-            gap: 5px;
-
-            font-size: 13px;
-        }
-
-        .registration strong {
-            color: var(--black);
-        }
-
-
-        /* =========================
-           EMPANELLED SECTION
-        ========================== */
-
-        .empanelled {
-            background: var(--dark);
-
-            color: white;
-        }
-
-        .empanelled .section-description {
-            color: #aaa;
-        }
-
-        .directory-top {
-            display: flex;
-
-            justify-content: space-between;
-            align-items: end;
-
-            gap: 30px;
-
-            margin-bottom: 30px;
-        }
-
-        .company-count {
-            font-size: 13px;
-
-            color: #999;
-
-            white-space: nowrap;
-        }
-
-
-        /* =========================
-           SEARCH
-        ========================== */
-
-        .search-wrapper {
-            position: relative;
-
-            margin-bottom: 25px;
-        }
-
-        .search-icon {
-            position: absolute;
-
-            left: 20px;
-            top: 50%;
-
-            transform: translateY(-50%);
-
-            color: #888;
-
-            font-size: 17px;
-        }
-
-        #companySearch {
-            width: 100%;
-
-            padding: 18px 20px 18px 50px;
-
-            background: #222222;
-
-            color: white;
-
-            border: 1px solid #3a3a3a;
-
-            outline: none;
-
-            font-size: 15px;
-
-            transition: 0.25s ease;
-        }
-
-        #companySearch:focus {
-            border-color: var(--gold);
-        }
-
-        #companySearch::placeholder {
-            color: #777;
-        }
-
-
-        /* =========================
-           COMPANY LIST
-        ========================== */
-
-        .company-list {
-            border: 1px solid #333;
-
-            max-height: 560px;
-
-            overflow-y: auto;
-
-            background: #191919;
-        }
-
-        /* Scrollbar */
-
-        .company-list::-webkit-scrollbar {
-            width: 8px;
-        }
-
-        .company-list::-webkit-scrollbar-track {
-            background: #161616;
-        }
-
-        .company-list::-webkit-scrollbar-thumb {
-            background: #555;
-        }
-
-        .company-list::-webkit-scrollbar-thumb:hover {
-            background: var(--gold);
-        }
-
-
-        /* =========================
-           COMPANY ITEM
-        ========================== */
-
-        .company-item {
-            border-bottom: 1px solid #303030;
-        }
-
-        .company-item:last-child {
-            border-bottom: none;
-        }
-
-        .company-button {
-            width: 100%;
-
-            border: none;
-
-            background: transparent;
-
-            color: white;
-
-            padding: 19px 25px;
-
-            display: flex;
-
-            align-items: center;
-
-            justify-content: space-between;
-
-            text-align: left;
-
-            cursor: pointer;
-
-            transition: 0.25s ease;
-        }
-
-        .company-button:hover {
-            background: #242424;
-        }
-
-        .company-name {
-            font-size: 15px;
-
-            font-weight: 500;
-        }
-
-        .company-arrow {
-            color: var(--gold);
-
-            font-size: 20px;
-
-            transition: transform 0.25s ease;
-        }
-
-        .company-item.active .company-arrow {
-            transform: rotate(180deg);
-        }
-
-        .registration-number {
-            max-height: 0;
-
-            overflow: hidden;
-
-            padding: 0 25px;
-
-            background: #222222;
-
-            color: #c9c9c9;
-
-            font-size: 13px;
-
-            transition:
-                max-height 0.3s ease,
-                padding 0.3s ease;
-        }
-
-        .company-item.active .registration-number {
-            max-height: 100px;
-
-            padding: 15px 25px 18px;
-
-            border-top: 1px solid #303030;
-        }
-
-        .registration-number span {
-            color: var(--gold-light);
-
-            font-weight: 600;
-        }
-
-
-        /* =========================
-           NO RESULTS
-        ========================== */
-
-        .no-results {
-            display: none;
-
-            padding: 40px;
-
-            text-align: center;
-
-            color: #888;
-        }
-
-
-        /* =========================
-           ABOUT / INTRO
-        ========================== */
-
-        .intro {
-            background: #f7f5f0;
-        }
-
-        .intro-grid {
-            display: grid;
-
-            grid-template-columns: 0.8fr 1.2fr;
-
-            gap: 90px;
-
-            align-items: start;
-        }
-
-        .intro-heading {
-            font-family: "Playfair Display", serif;
-
-            font-size: 38px;
-
-            line-height: 1.25;
-        }
-
-        .intro-text {
-            color: #626262;
-
-            font-size: 16px;
-
-            line-height: 1.9;
-        }
-
-
-        /* =========================
-           CONTACT
-        ========================== */
-
-        .contact {
-            background: #ffffff;
-        }
-
-        .contact-box {
-            border-top: 1px solid var(--light-grey);
-
-            border-bottom: 1px solid var(--light-grey);
-
-            padding: 45px 0;
-
-            display: flex;
-
-            justify-content: space-between;
-
-            align-items: center;
-
-            gap: 30px;
-        }
-
-        .contact-box h2 {
-            font-family: "Playfair Display", serif;
-
-            font-size: 35px;
-        }
-
-        .contact-box p {
-            color: var(--grey);
-
-            margin-top: 7px;
-        }
-
-        .contact-button {
-            display: inline-block;
-
-            background: var(--black);
-
-            color: white;
-
-            padding: 15px 25px;
-
-            font-size: 13px;
-
-            letter-spacing: 0.5px;
-
-            transition: 0.25s ease;
-        }
-
-        .contact-button:hover {
-            background: var(--gold);
-        }
-
-
-        /* =========================
-           FOOTER
-        ========================== */
-
-        footer {
-            background: #111111;
-
-            color: #999;
-
-            padding: 35px 30px;
-        }
-
-        .footer-container {
-            max-width: 1200px;
-
-            margin: auto;
-
-            display: flex;
-
-            justify-content: space-between;
-
-            align-items: center;
-
-            gap: 20px;
-        }
-
-        .footer-brand {
-            color: white;
-
-            font-weight: 600;
-
-            letter-spacing: 1px;
-        }
-
-        .footer-copy {
-            font-size: 12px;
-        }
-
-
-        /* =========================
-           RESPONSIVE
-        ========================== */
-
-        @media (max-width: 850px) {
-
-            .nav-container {
-                padding: 15px 20px;
-            }
-
-            .nav-links {
-                gap: 15px;
-
-                font-size: 12px;
-            }
-
-            .hero {
-                grid-template-columns: 1fr;
-
-                padding:
-                    75px 20px
-                    65px;
-
-                gap: 45px;
-            }
-
-            .hero-side {
-                border-left: none;
-
-                border-top: 1px solid var(--light-grey);
-
-                padding-left: 0;
-
-                padding-top: 30px;
-            }
-
-            section {
-                padding:
-                    65px 20px;
-            }
-
-            .intermediary-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .intro-grid {
-                grid-template-columns: 1fr;
-
-                gap: 30px;
-            }
-
-            .directory-top {
-                flex-direction: column;
-
-                align-items: flex-start;
-            }
-
-            .contact-box {
-                flex-direction: column;
-
-                align-items: flex-start;
-            }
-
-            .footer-container {
-                flex-direction: column;
-
-                align-items: flex-start;
-            }
-        }
-
-
-        @media (max-width: 520px) {
-
-            .nav-brand span {
-                font-size: 12px;
-            }
-
-            .nav-logo {
-                width: 34px;
-                height: 34px;
-            }
-
-            .nav-links {
-                gap: 10px;
-            }
-
-            .nav-links a:nth-child(2) {
-                display: none;
-            }
-
-            .hero h1 {
-                font-size: 48px;
-            }
-
-            .hero-description {
-                font-size: 15px;
-            }
-
-            .company-button {
-                padding: 17px 18px;
-            }
-
-            .registration-number {
-                padding-left: 18px;
-                padding-right: 18px;
-            }
-
-            .company-item.active .registration-number {
-                padding-left: 18px;
-                padding-right: 18px;
-            }
-        }
-
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Minakshi Investment</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+    --black: #111111;
+    --dark: #171717;
+    --gold: #b28a45;
+    --gold-light: #d3b16d;
+    --cream: #f7f5f0;
+    --white: #ffffff;
+    --grey: #6d6d6d;
+    --border: #e5e0d7;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "DM Sans", sans-serif;
+    background: var(--cream);
+    color: var(--black);
+    line-height: 1.6;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* NAVIGATION */
+nav {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: rgba(247,245,240,0.94);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(0,0,0,0.08);
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 17px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.nav-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    font-size: 14px;
+}
+
+.logo {
+    width: 44px;
+    height: 44px;
+    object-fit: contain;
+}
+
+.nav-links {
+    display: flex;
+    gap: 30px;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.nav-links a {
+    transition: 0.25s ease;
+}
+
+.nav-links a:hover {
+    color: var(--gold);
+}
+
+/* HERO */
+.hero {
+    max-width: 1200px;
+    margin: auto;
+    padding: 105px 30px 100px;
+    display: grid;
+    grid-template-columns: 1.25fr 0.75fr;
+    gap: 70px;
+    align-items: center;
+}
+
+.hero-label {
+    color: var(--gold);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+.hero h1 {
+    font-family: "Playfair Display", serif;
+    font-size: clamp(50px, 7vw, 82px);
+    line-height: 1.03;
+    font-weight: 600;
+    margin-bottom: 28px;
+}
+
+.hero h1 span {
+    color: var(--gold);
+}
+
+.hero-text {
+    max-width: 600px;
+    color: var(--grey);
+    font-size: 16px;
+    line-height: 1.85;
+}
+
+.hero-side {
+    border-left: 1px solid var(--border);
+    padding-left: 40px;
+}
+
+.hero-number {
+    font-family: "Playfair Display", serif;
+    color: var(--gold);
+    font-size: 68px;
+    line-height: 1;
+    margin-bottom: 15px;
+}
+
+.hero-side p {
+    color: var(--grey);
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+/* GENERAL SECTIONS */
+section {
+    padding: 90px 30px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: auto;
+}
+
+.section-label {
+    color: var(--gold);
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    font-size: 11px;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.section-title {
+    font-family: "Playfair Display", serif;
+    font-size: clamp(36px, 5vw, 52px);
+    line-height: 1.15;
+    margin-bottom: 18px;
+}
+
+.section-description {
+    max-width: 650px;
+    color: var(--grey);
+    font-size: 15px;
+    line-height: 1.8;
+    margin-bottom: 45px;
+}
+
+/* ABOUT */
+.about {
+    background: #ffffff;
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 0.8fr 1.2fr;
+    gap: 90px;
+}
+
+.about-heading {
+    font-family: "Playfair Display", serif;
+    font-size: 38px;
+    line-height: 1.3;
+}
+
+.about-text {
+    color: var(--grey);
+    font-size: 15px;
+    line-height: 1.9;
+}
+
+.about-text p + p {
+    margin-top: 20px;
+}
+
+/* INTERMEDIARIES */
+.intermediaries {
+    background: var(--cream);
+}
+
+.intermediary-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.intermediary-card {
+    background: #ffffff;
+    border: 1px solid var(--border);
+    padding: 34px;
+    min-height: 255px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.intermediary-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--gold);
+    box-shadow: 0 18px 40px rgba(0,0,0,0.07);
+}
+
+.card-number {
+    color: var(--gold);
+    font-family: "Playfair Display", serif;
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.intermediary-card h3 {
+    font-size: 20px;
+    margin-bottom: 12px;
+}
+
+.intermediary-card p {
+    color: var(--grey);
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+.registration {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-top: 20px;
+    font-size: 13px;
+}
+
+.registration strong {
+    color: var(--black);
+}
+
+/* EMPANELLED COMPANIES */
+.companies {
+    background: var(--dark);
+    color: white;
+}
+
+.companies .section-description {
+    color: #a5a5a5;
+}
+
+.companies-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 30px;
+}
+
+.company-count {
+    color: #888;
+    font-size: 13px;
+    white-space: nowrap;
+}
+
+/* SEARCH */
+.search-box {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.search-box input {
+    width: 100%;
+    background: #222222;
+    color: white;
+    border: 1px solid #383838;
+    outline: none;
+    padding: 18px 20px;
+    font-size: 14px;
+    transition: 0.25s ease;
+}
+
+.search-box input:focus {
+    border-color: var(--gold);
+}
+
+.search-box input::placeholder {
+    color: #777;
+}
+
+/* COMPANY LIST */
+.company-list {
+    max-height: 520px;
+    overflow-y: auto;
+    border: 1px solid #333333;
+    background: #191919;
+}
+
+.company-list::-webkit-scrollbar {
+    width: 7px;
+}
+
+.company-list::-webkit-scrollbar-track {
+    background: #151515;
+}
+
+.company-list::-webkit-scrollbar-thumb {
+    background: #555;
+}
+
+.company-list::-webkit-scrollbar-thumb:hover {
+    background: var(--gold);
+}
+
+/* COMPANY ITEM */
+.company-item {
+    border-bottom: 1px solid #303030;
+}
+
+.company-item:last-child {
+    border-bottom: none;
+}
+
+.company-button {
+    width: 100%;
+    padding: 18px 24px;
+    border: none;
+    background: transparent;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: left;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.company-button:hover {
+    background: #242424;
+}
+
+.company-name {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.arrow {
+    color: var(--gold);
+    font-size: 19px;
+    transition: transform 0.25s ease;
+}
+
+.company-item.active .arrow {
+    transform: rotate(180deg);
+}
+
+.registration-number {
+    max-height: 0;
+    overflow: hidden;
+    background: #222222;
+    color: #aaa;
+    padding: 0 24px;
+    font-size: 13px;
+    transition: max-height 0.3s ease, padding 0.3s ease;
+}
+
+.company-item.active .registration-number {
+    max-height: 80px;
+    padding: 14px 24px 16px;
+    border-top: 1px solid #303030;
+}
+
+.registration-number span {
+    color: var(--gold-light);
+    font-weight: 600;
+}
+
+.no-results {
+    display: none;
+    text-align: center;
+    color: #888;
+    padding: 35px;
+}
+
+/* CONTACT */
+.contact {
+    background: white;
+}
+
+.contact-inner {
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 45px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+}
+
+.contact-inner h2 {
+    font-family: "Playfair Display", serif;
+    font-size: 35px;
+}
+
+.contact-inner p {
+    color: var(--grey);
+    margin-top: 6px;
+}
+
+.top-button {
+    background: var(--black);
+    color: white;
+    padding: 14px 23px;
+    font-size: 12px;
+    letter-spacing: 1px;
+    transition: 0.25s ease;
+}
+
+.top-button:hover {
+    background: var(--gold);
+}
+
+/* FOOTER */
+footer {
+    background: #111111;
+    color: #999;
+    padding: 32px 30px;
+}
+
+.footer-inner {
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-brand {
+    color: white;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.footer-copy {
+    font-size: 12px;
+}
+
+/* MOBILE */
+@media (max-width: 850px) {
+    .hero {
+        grid-template-columns: 1fr;
+        padding: 75px 20px 65px;
+        gap: 45px;
+    }
+
+    .hero-side {
+        border-left: none;
+        border-top: 1px solid var(--border);
+        padding-left: 0;
+        padding-top: 30px;
+    }
+
+    section {
+        padding: 65px 20px;
+    }
+
+    .about-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .intermediary-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .companies-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .contact-inner {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .footer-inner {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+}
+
+@media (max-width: 550px) {
+    .nav-container {
+        padding: 14px 18px;
+    }
+
+    .nav-links {
+        gap: 12px;
+        font-size: 11px;
+    }
+
+    .nav-brand {
+        font-size: 11px;
+    }
+
+    .logo {
+        width: 36px;
+        height: 36px;
+    }
+
+    .hero h1 {
+        font-size: 48px;
+    }
+}
+</style>
 </head>
-
 
 <body>
 
-
-<!-- =====================================
-     NAVIGATION
-====================================== -->
-
+<!-- NAVIGATION -->
 <nav>
-
     <div class="nav-container">
-
         <a href="#home" class="nav-brand">
-
-            <img
-                src="logo.png"
-                alt="Minakshi Investment Logo"
-                class="nav-logo"
-            >
-
+            <img src="logo.png" alt="Minakshi Investment Logo" class="logo">
             <span>MINAKSHI INVESTMENT</span>
-
         </a>
 
-
         <div class="nav-links">
-
-            <a href="#about">
-                About
-            </a>
-
-            <a href="#intermediaries">
-                Intermediaries
-            </a>
-
-            <a href="#companies">
-                Empanelled Companies
-            </a>
-
+            <a href="#about">About</a>
+            <a href="#intermediaries">Intermediaries</a>
+            <a href="#companies">Empanelled Companies</a>
         </div>
-
     </div>
-
 </nav>
 
-
-
-<!-- =====================================
-     HERO
-====================================== -->
-
+<!-- HERO -->
 <header class="hero" id="home">
-
     <div>
-
-        <div class="hero-small">
-            MINAKSHI INVESTMENT
-        </div>
-
-        <h1>
-            Building wealth<br>
-            with <span>clarity.</span>
-        </h1>
-
-        <p class="hero-description">
+        <div class="hero-label">MINAKSHI INVESTMENT</div>
+        <h1>Building wealth<br>with <span>clarity.</span></h1>
+        <p class="hero-text">
             A professional investment distribution platform
-            offering access to mutual funds, SIF and PMS solutions
-            through registered intermediaries.
+            providing access to Mutual Funds, SIF and PMS
+            solutions through registered intermediaries.
         </p>
-
     </div>
-
 
     <div class="hero-side">
-
-        <div class="hero-side-number">
-            18+
-        </div>
-
-        <div class="hero-side-text">
-            Years of investment experience and
-            a long-term approach towards helping
+        <div class="hero-number">18+</div>
+        <p>
+            Years of investment experience and a
+            long-term approach towards helping
             investors make informed financial decisions.
-        </div>
-
+        </p>
     </div>
-
 </header>
 
-
-
-<!-- =====================================
-     ABOUT
-====================================== -->
-
-<section class="intro" id="about">
-
-    <div class="section-container">
-
-        <div class="intro-grid">
-
+<!-- ABOUT -->
+<section class="about" id="about">
+    <div class="container">
+        <div class="about-grid">
             <div>
-
-                <div class="section-label">
-                    About us
-                </div>
-
-                <h2 class="intro-heading">
-                    Simple thinking.
-                    Long-term investing.
+                <div class="section-label">About us</div>
+                <h2 class="about-heading">
+                    Simple thinking.<br>Long-term investing.
                 </h2>
-
             </div>
 
-
-            <div class="intro-text">
-
+            <div class="about-text">
                 <p>
                     Minakshi Investment is an investment distribution
-                    platform focused on helping investors access
-                    a range of financial products through registered
+                    platform focused on helping investors access a
+                    range of financial products through registered
                     intermediaries.
                 </p>
-
-                <br>
-
                 <p>
                     Our platform provides access to Mutual Funds,
                     Specialized Investment Funds (SIF), Portfolio
                     Management Services (PMS), Insurance, Bonds and
                     Loan Against Securities.
                 </p>
-
-                <br>
-
                 <p>
                     We believe financial decisions should be based on
                     clarity, understanding and a long-term perspective.
                 </p>
-
             </div>
-
         </div>
-
     </div>
-
 </section>
 
-
-
-<!-- =====================================
-     REGISTERED INTERMEDIARIES
-====================================== -->
-
+<!-- REGISTERED INTERMEDIARIES -->
 <section class="intermediaries" id="intermediaries">
-
-    <div class="section-container">
-
-        <div class="section-label">
-            Registered Intermediaries
-        </div>
-
-        <h2 class="section-title">
-            Our Intermediaries
-        </h2>
-
+    <div class="container">
+        <div class="section-label">Registered Intermediaries</div>
+        <h2 class="section-title">Our Intermediaries</h2>
         <p class="section-description">
             Details of the registered intermediaries associated
             with Minakshi Investment.
         </p>
 
-
         <div class="intermediary-grid">
-
-
-            <!-- CARD 1 -->
-
             <div class="intermediary-card">
-
-                <div class="card-number">
-                    01
-                </div>
-
-                <h3>
-                    Sunil Kumar Sharma
-                </h3>
-
-                <p>
-                    AMFI Registered Mutual Fund Distributor
-                </p>
-
+                <div class="card-number">01</div>
+                <h3>Sunil Kumar Sharma</h3>
+                <p>AMFI Registered Mutual Fund Distributor</p>
                 <div class="registration">
-
-                    <span>
-                        <strong>ARN:</strong>
-                        49981
-                    </span>
-
+                    <span><strong>ARN:</strong> 49981</span>
                 </div>
-
             </div>
 
-
-
-            <!-- CARD 2 -->
-
             <div class="intermediary-card">
-
-                <div class="card-number">
-                    02
-                </div>
-
-                <h3>
-                    Saloni Sharma
-                </h3>
-
+                <div class="card-number">02</div>
+                <h3>Saloni Sharma</h3>
                 <p>
                     AMFI Registered Mutual Fund Distributor
-                    &amp; SIF Distributor,
-                    APMI Registered PMS Distributor
+                    &amp; SIF Distributor, APMI Registered
+                    PMS Distributor
                 </p>
-
                 <div class="registration">
-
-                    <span>
-                        <strong>ARN:</strong>
-                        190283
-                    </span>
-
-                    <span>
-                        <strong>PMS:</strong>
-                        APRN05574
-                    </span>
-
+                    <span><strong>ARN:</strong> 190283</span>
+                    <span><strong>PMS:</strong> APRN05574</span>
                 </div>
-
             </div>
-
-
-
-            <!-- CARD 3 -->
 
             <div class="intermediary-card">
-
-                <div class="card-number">
-                    03
-                </div>
-
-                <h3>
-                    Anmol Sharma
-                </h3>
-
+                <div class="card-number">03</div>
+                <h3>Anmol Sharma</h3>
                 <p>
                     AMFI Registered Mutual Fund Distributor
-                    &amp; SIF Distributor,
-                    APMI Registered PMS Distributor
+                    &amp; SIF Distributor, APMI Registered
+                    PMS Distributor
                 </p>
-
                 <div class="registration">
-
-                    <span>
-                        <strong>ARN:</strong>
-                        252225
-                    </span>
-
-                    <span>
-                        <strong>PMS:</strong>
-                        APRN05573
-                    </span>
-
+                    <span><strong>ARN:</strong> 252225</span>
+                    <span><strong>PMS:</strong> APRN05573</span>
                 </div>
-
             </div>
-
-
         </div>
-
-    </<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
-
-    <meta name="description"
-          content="Minakshi Investment - Mutual Funds, SIF and PMS distribution services.">
-
-    <title>Minakshi Investment</title>
-
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
-          rel="stylesheet">
-
-    <style>
-
-        /* =========================
-           GLOBAL
-        ========================== */
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: "DM Sans", sans-serif;
-            background: #f7f5f0;
-            color: #161616;
-            line-height: 1.6;
-        }
-
-        a {
-            color: inherit;
-            text-decoration: none;
-        }
-
-        button,
-        input {
-            font-family: inherit;
-        }
-
-
-        /* =========================
-           VARIABLES
-        ========================== */
-
-        :root {
-            --black: #111111;
-            --dark: #181818;
-            --gold: #b28a45;
-            --gold-light: #d5b77a;
-            --cream: #f7f5f0;
-            --white: #ffffff;
-            --grey: #6e6e6e;
-            --light-grey: #e6e2d9;
-            --border: rgba(0,0,0,0.09);
-        }
-
-
-        /* =========================
-           NAVBAR
-        ========================== */
-
-        nav {
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-
-            background: rgba(247,245,240,0.94);
-            backdrop-filter: blur(14px);
-
-            border-bottom: 1px solid var(--border);
-        }
-
-        .nav-container {
-            max-width: 1200px;
-            margin: auto;
-
-            padding: 18px 30px;
-
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .nav-brand {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-
-            font-weight: 700;
-            letter-spacing: 1px;
-        }
-
-        .nav-logo {
-            width: 42px;
-            height: 42px;
-
-            object-fit: contain;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 32px;
-
-            font-size: 14px;
-            font-weight: 500;
-        }
-
-        .nav-links a {
-            transition: 0.25s ease;
-        }
-
-        .nav-links a:hover {
-            color: var(--gold);
-        }
-
-
-        /* =========================
-           HERO
-        ========================== */
-
-        .hero {
-            max-width: 1200px;
-            margin: auto;
-
-            padding: 105px 30px 95px;
-
-            display: grid;
-            grid-template-columns: 1.3fr 0.7fr;
-            gap: 70px;
-
-            align-items: center;
-        }
-
-        .hero-small {
-            color: var(--gold);
-
-            text-transform: uppercase;
-            letter-spacing: 3px;
-
-            font-size: 12px;
-            font-weight: 700;
-
-            margin-bottom: 18px;
-        }
-
-        .hero h1 {
-            font-family: "Playfair Display", serif;
-
-            font-size: clamp(48px, 7vw, 82px);
-
-            line-height: 1.03;
-
-            font-weight: 600;
-
-            margin-bottom: 28px;
-        }
-
-        .hero h1 span {
-            color: var(--gold);
-        }
-
-        .hero-description {
-            max-width: 600px;
-
-            color: #606060;
-
-            font-size: 17px;
-            line-height: 1.8;
-        }
-
-        .hero-side {
-            border-left: 1px solid var(--light-grey);
-
-            padding-left: 40px;
-        }
-
-        .hero-side-number {
-            font-family: "Playfair Display", serif;
-
-            font-size: 65px;
-            line-height: 1;
-
-            color: var(--gold);
-
-            margin-bottom: 12px;
-        }
-
-        .hero-side-text {
-            color: var(--grey);
-
-            font-size: 14px;
-            line-height: 1.7;
-        }
-
-
-        /* =========================
-           SECTION
-        ========================== */
-
-        section {
-            padding: 90px 30px;
-        }
-
-        .section-container {
-            max-width: 1200px;
-            margin: auto;
-        }
-
-        .section-label {
-            color: var(--gold);
-
-            text-transform: uppercase;
-            letter-spacing: 2.5px;
-
-            font-size: 11px;
-            font-weight: 700;
-
-            margin-bottom: 12px;
-        }
-
-        .section-title {
-            font-family: "Playfair Display", serif;
-
-            font-size: clamp(35px, 5vw, 52px);
-
-            line-height: 1.15;
-
-            margin-bottom: 18px;
-        }
-
-        .section-description {
-            color: var(--grey);
-
-            max-width: 650px;
-
-            margin-bottom: 50px;
-        }
-
-
-        /* =========================
-           INTERMEDIARIES
-        ========================== */
-
-        .intermediaries {
-            background: #ffffff;
-        }
-
-        .intermediary-grid {
-            display: grid;
-
-            grid-template-columns:
-                repeat(3, 1fr);
-
-            gap: 20px;
-        }
-
-        .intermediary-card {
-            position: relative;
-
-            background: #faf9f6;
-
-            border: 1px solid var(--light-grey);
-
-            padding: 34px;
-
-            min-height: 250px;
-
-            transition:
-                transform 0.3s ease,
-                box-shadow 0.3s ease,
-                border-color 0.3s ease;
-        }
-
-        .intermediary-card:hover {
-            transform: translateY(-5px);
-
-            border-color: var(--gold);
-
-            box-shadow:
-                0 15px 35px rgba(0,0,0,0.07);
-        }
-
-        .card-number {
-            font-family: "Playfair Display", serif;
-
-            font-size: 20px;
-
-            color: var(--gold);
-
-            margin-bottom: 20px;
-        }
-
-        .intermediary-card h3 {
-            font-size: 20px;
-
-            margin-bottom: 12px;
-        }
-
-        .intermediary-card p {
-            color: var(--grey);
-
-            font-size: 14px;
-
-            line-height: 1.8;
-        }
-
-        .registration {
-            margin-top: 20px;
-
-            display: flex;
-            flex-direction: column;
-
-            gap: 5px;
-
-            font-size: 13px;
-        }
-
-        .registration strong {
-            color: var(--black);
-        }
-
-
-        /* =========================
-           EMPANELLED SECTION
-        ========================== */
-
-        .empanelled {
-            background: var(--dark);
-
-            color: white;
-        }
-
-        .empanelled .section-description {
-            color: #aaa;
-        }
-
-        .directory-top {
-            display: flex;
-
-            justify-content: space-between;
-            align-items: end;
-
-            gap: 30px;
-
-            margin-bottom: 30px;
-        }
-
-        .company-count {
-            font-size: 13px;
-
-            color: #999;
-
-            white-space: nowrap;
-        }
-
-
-        /* =========================
-           SEARCH
-        ========================== */
-
-        .search-wrapper {
-            position: relative;
-
-            margin-bottom: 25px;
-        }
-
-        .search-icon {
-            position: absolute;
-
-            left: 20px;
-            top: 50%;
-
-            transform: translateY(-50%);
-
-            color: #888;
-
-            font-size: 17px;
-        }
-
-        #companySearch {
-            width: 100%;
-
-            padding: 18px 20px 18px 50px;
-
-            background: #222222;
-
-            color: white;
-
-            border: 1px solid #3a3a3a;
-
-            outline: none;
-
-            font-size: 15px;
-
-            transition: 0.25s ease;
-        }
-
-        #companySearch:focus {
-            border-color: var(--gold);
-        }
-
-        #companySearch::placeholder {
-            color: #777;
-        }
-
-
-        /* =========================
-           COMPANY LIST
-        ========================== */
-
-        .company-list {
-            border: 1px solid #333;
-
-            max-height: 560px;
-
-            overflow-y: auto;
-
-            background: #191919;
-        }
-
-        /* Scrollbar */
-
-        .company-list::-webkit-scrollbar {
-            width: 8px;
-        }
-
-        .company-list::-webkit-scrollbar-track {
-            background: #161616;
-        }
-
-        .company-list::-webkit-scrollbar-thumb {
-            background: #555;
-        }
-
-        .company-list::-webkit-scrollbar-thumb:hover {
-            background: var(--gold);
-        }
-
-
-        /* =========================
-           COMPANY ITEM
-        ========================== */
-
-        .company-item {
-            border-bottom: 1px solid #303030;
-        }
-
-        .company-item:last-child {
-            border-bottom: none;
-        }
-
-        .company-button {
-            width: 100%;
-
-            border: none;
-
-            background: transparent;
-
-            color: white;
-
-            padding: 19px 25px;
-
-            display: flex;
-
-            align-items: center;
-
-            justify-content: space-between;
-
-            text-align: left;
-
-            cursor: pointer;
-
-            transition: 0.25s ease;
-        }
-
-        .company-button:hover {
-            background: #242424;
-        }
-
-        .company-name {
-            font-size: 15px;
-
-            font-weight: 500;
-        }
-
-        .company-arrow {
-            color: var(--gold);
-
-            font-size: 20px;
-
-            transition: transform 0.25s ease;
-        }
-
-        .company-item.active .company-arrow {
-            transform: rotate(180deg);
-        }
-
-        .registration-number {
-            max-height: 0;
-
-            overflow: hidden;
-
-            padding: 0 25px;
-
-            background: #222222;
-
-            color: #c9c9c9;
-
-            font-size: 13px;
-
-            transition:
-                max-height 0.3s ease,
-                padding 0.3s ease;
-        }
-
-        .company-item.active .registration-number {
-            max-height: 100px;
-
-            padding: 15px 25px 18px;
-
-            border-top: 1px solid #303030;
-        }
-
-        .registration-number span {
-            color: var(--gold-light);
-
-            font-weight: 600;
-        }
-
-
-        /* =========================
-           NO RESULTS
-        ========================== */
-
-        .no-results {
-            display: none;
-
-            padding: 40px;
-
-            text-align: center;
-
-            color: #888;
-        }
-
-
-        /* =========================
-           ABOUT / INTRO
-        ========================== */
-
-        .intro {
-            background: #f7f5f0;
-        }
-
-        .intro-grid {
-            display: grid;
-
-            grid-template-columns: 0.8fr 1.2fr;
-
-            gap: 90px;
-
-            align-items: start;
-        }
-
-        .intro-heading {
-            font-family: "Playfair Display", serif;
-
-            font-size: 38px;
-
-            line-height: 1.25;
-        }
-
-        .intro-text {
-            color: #626262;
-
-            font-size: 16px;
-
-            line-height: 1.9;
-        }
-
-
-        /* =========================
-           CONTACT
-        ========================== */
-
-        .contact {
-            background: #ffffff;
-        }
-
-        .contact-box {
-            border-top: 1px solid var(--light-grey);
-
-            border-bottom: 1px solid var(--light-grey);
-
-            padding: 45px 0;
-
-            display: flex;
-
-            justify-content: space-between;
-
-            align-items: center;
-
-            gap: 30px;
-        }
-
-        .contact-box h2 {
-            font-family: "Playfair Display", serif;
-
-            font-size: 35px;
-        }
-
-        .contact-box p {
-            color: var(--grey);
-
-            margin-top: 7px;
-        }
-
-        .contact-button {
-            display: inline-block;
-
-            background: var(--black);
-
-            color: white;
-
-            padding: 15px 25px;
-
-            font-size: 13px;
-
-            letter-spacing: 0.5px;
-
-            transition: 0.25s ease;
-        }
-
-        .contact-button:hover {
-            background: var(--gold);
-        }
-
-
-        /* =========================
-           FOOTER
-        ========================== */
-
-        footer {
-            background: #111111;
-
-            color: #999;
-
-            padding: 35px 30px;
-        }
-
-        .footer-container {
-            max-width: 1200px;
-
-            margin: auto;
-
-            display: flex;
-
-            justify-content: space-between;
-
-            align-items: center;
-
-            gap: 20px;
-        }
-
-        .footer-brand {
-            color: white;
-
-            font-weight: 600;
-
-            letter-spacing: 1px;
-        }
-
-        .footer-copy {
-            font-size: 12px;
-        }
-
-
-        /* =========================
-           RESPONSIVE
-        ========================== */
-
-        @media (max-width: 850px) {
-
-            .nav-container {
-                padding: 15px 20px;
-            }
-
-            .nav-links {
-                gap: 15px;
-
-                font-size: 12px;
-            }
-
-            .hero {
-                grid-template-columns: 1fr;
-
-                padding:
-                    75px 20px
-                    65px;
-
-                gap: 45px;
-            }
-
-            .hero-side {
-                border-left: none;
-
-                border-top: 1px solid var(--light-grey);
-
-                padding-left: 0;
-
-                padding-top: 30px;
-            }
-
-            section {
-                padding:
-                    65px 20px;
-            }
-
-            .intermediary-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .intro-grid {
-                grid-template-columns: 1fr;
-
-                gap: 30px;
-            }
-
-            .directory-top {
-                flex-direction: column;
-
-                align-items: flex-start;
-            }
-
-            .contact-box {
-                flex-direction: column;
-
-                align-items: flex-start;
-            }
-
-            .footer-container {
-                flex-direction: column;
-
-                align-items: flex-start;
-            }
-        }
-
-
-        @media (max-width: 520px) {
-
-            .nav-brand span {
-                font-size: 12px;
-            }
-
-            .nav-logo {
-                width: 34px;
-                height: 34px;
-            }
-
-            .nav-links {
-                gap: 10px;
-            }
-
-            .nav-links a:nth-child(2) {
-                display: none;
-            }
-
-            .hero h1 {
-                font-size: 48px;
-            }
-
-            .hero-description {
-                font-size: 15px;
-            }
-
-            .company-button {
-                padding: 17px 18px;
-            }
-
-            .registration-number {
-                padding-left: 18px;
-                padding-right: 18px;
-            }
-
-            .company-item.active .registration-number {
-                padding-left: 18px;
-                padding-right: 18px;
-            }
-        }
-
-    </style>
-</head>
-
-
-<body>
-
-
-<!-- =====================================
-     NAVIGATION
-====================================== -->
-
-<nav>
-
-    <div class="nav-container">
-
-        <a href="#home" class="nav-brand">
-
-            <img
-                src="logo.png"
-                alt="Minakshi Investment Logo"
-                class="nav-logo"
-            >
-
-            <span>MINAKSHI INVESTMENT</span>
-
-        </a>
-
-
-        <div class="nav-links">
-
-            <a href="#about">
-                About
-            </a>
-
-            <a href="#intermediaries">
-                Intermediaries
-            </a>
-
-            <a href="#companies">
-                Empanelled Companies
-            </a>
-
-        </div>
-
     </div>
+</section>
 
-</nav>
-
-
-
-<!-- =====================================
-     HERO
-====================================== -->
-
-<header class="hero" id="home">
-
-    <div>
-
-        <div class="hero-small">
-            MINAKSHI INVESTMENT
-        </div>
-
-        <h1>
-            Building wealth<br>
-            with <span>clarity.</span>
-        </h1>
-
-        <p class="hero-description">
-            A professional investment distribution platform
-            offering access to mutual funds, SIF and PMS solutions
-            through registered intermediaries.
-        </p>
-
-    </div>
-
-
-    <div class="hero-side">
-
-        <div class="hero-side-number">
-            18+
-        </div>
-
-        <div class="hero-side-text">
-            Years of investment experience and
-            a long-term approach towards helping
-            investors make informed financial decisions.
-        </div>
-
-    </div>
-
-</header>
-
-
-
-<!-- =====================================
-     ABOUT
-====================================== -->
-
-<section class="intro" id="about">
-
-    <div class="section-container">
-
-        <div class="intro-grid">
-
+<!-- EMPANELLED COMPANIES -->
+<section class="companies" id="companies">
+    <div class="container">
+        <div class="companies-header">
             <div>
-
-                <div class="section-label">
-                    About us
-                </div>
-
-                <h2 class="intro-heading">
-                    Simple thinking.
-                    Long-term investing.
-                </h2>
-
+                <div class="section-label">Investment Partners</div>
+                <h2 class="section-title">Empanelled Companies</h2>
+                <p class="section-description">
+                    Search our empanelled mutual fund companies.
+                    Click on any company to view its registration number.
+                </p>
             </div>
 
-
-            <div class="intro-text">
-
-                <p>
-                    Minakshi Investment is an investment distribution
-                    platform focused on helping investors access
-                    a range of financial products through registered
-                    intermediaries.
-                </p>
-
-                <br>
-
-                <p>
-                    Our platform provides access to Mutual Funds,
-                    Specialized Investment Funds (SIF), Portfolio
-                    Management Services (PMS), Insurance, Bonds and
-                    Loan Against Securities.
-                </p>
-
-                <br>
-
-                <p>
-                    We believe financial decisions should be based on
-                    clarity, understanding and a long-term perspective.
-                </p>
-
+            <div class="company-count">
+                <span id="companyCount">61</span> companies
             </div>
-
         </div>
 
-    </div>
+        <div class="search-box">
+            <input
+                type="text"
+                id="companySearch"
+                placeholder="Search mutual fund company..."
+                autocomplete="off"
+                aria-label="Search mutual fund companies"
+            >
+        </div>
 
+        <div class="company-list" id="companyList">
+
+            <div class="company-item">
+                <button class="company-button" onclick="toggleCompany(this)">
+                    <span class="company-name">360 ONE Mutual Fund</span><span class="arrow">↓</span>
+                </button>
+                <div class="registration-number">Registration No: <span>MF/067/11/02</span></div>
+            </div>
+
+            <div class="company-item">
+                <button class="company-button" onclick="toggleCompany(this)">
+                    <span class="company-name">Abakkus Mutual Fund</span><span class="arrow">↓</span>
+                </button>
+                <div class="registration-number">Registration No: <span>MF/088/25/14</span></div>
+            </div>
+
+            <div class="company-item">
+                <button class="company-button" onclick="toggleCompany(this)">
+                    <span class="company-name">ADITYA BIRLA SUN LIFE MF</span><span class="arrow">↓</span>
+                </button>
+                <div class="registration-number">Registration No: <span>MF/020/94/8</span></div>
+            </div>
+
+            <div class="company-item">
+                <button class="company-button" onclick="toggleCompany(this)">
+                    <span class="company-name">AlphaGrep Mutual Fund</span><span class="arrow">↓</span>
+                </button>
+                <div class="registration-number">Registration No: <span>MF/090/26/16</span></div>
+            </div>
+
+            <div class="company-item">
+                <button class="company-button" onclick="toggleCompany(this)">
+                    <span class="company-name">Angel One Mutual Fund</span><span class="arrow">↓</span>
+                </button>
+                <div class="registration-number">Registration No: <span>MF/083/24/09</span></div>
+            </div>
+
+            <div class="company-item">
+                <button class="company-button" onclick="toggleCompany(this)">
+                    <span class="company-name">ASK Mutual Fund</span><span class="arrow">↓</span>
+                </button>
+                <div class="registration-number">Registration No: <span>MF/089/26/15</span></div>
+            </div>
+
+            <div class="company-item">
+                <button class="company-button" onclick="toggleCompany(this)">
+                    <span class="company-name">AXIS MF</span><span class="arrow">↓</span>
+                </button>
+                <div class="registration-number">Registration No: <span>MF/061/09/02</span></div>
+            </div>
+
+            <div class="company-item">
+                <button class="company-button" onclick="toggleCompany(this)">
+                    <span class="company-name">BAJAJ FINSERV MUTUAL FUND</span><span class="arrow">↓</span>
+                </button>
+                <div class="registration-number">Registration No: <span>MF/078/23/04</span></div>
+            </div>
+
+            <div class="company-item">
+                <button class="company-button" onclick="toggleCompany(this)">
+                    <span class="company-name">Bandhan Mutual Fund</span><span class="arrow">↓</span>
+                </button>
+                <div class="registration-number">Registration No: <span>MF/042/00/3</span></div>
+            </div>
+
+            <div class="company-item">
+                <button class="company-button" onclick="toggleCompany(this)">
+                    <span class="company-name">Bank of India Mutual Fund</span><span class="arrow">↓</span>
+                </button>
+                <div class="registration-number">Registration No: <span>MF/056/08/01</span></div>
+            </div>
+
+            <div class="company-item">
+                <button class="company-button" onclick="toggleCompany(this)">
+                    <span class="company-name">Baroda BNP Paribas Mutual Fund</span><span class="arrow">↓</span>
+                </button>
+                <div class="registration-number">Registration No: <span>MF/018/94/2</span></div>
+            </div>
+
+            <div class="company-item">
+                <button class="company-button" onclick="toggleCompany(this)">
+                    <span class="company-name">CANARA ROBECO MF</span><span class="arrow">↓</span>
+                </button>
+                <div class="registration-number">Registration No: <span>MF/004/93/4</span></div>
+            </div>
+
+            <div class="company-item">
+                <button class="company-button" onclick="toggleCompany(this)">
+                    <span class="company-name">Capitalmind Mutual Fund</span><span class="arrow">↓</span>
+                </button>
+                <div class="registration-number">Registration No: <span>MF/084/25/10</span></div>
+            </div>
+
+            <div class="company-item">
+                <button class="company-button" onclick="toggleCompany(this)">
+                    <span class="company-name">Carnelian Mutual Fund</span><span class="arrow">↓</span>
+                </button>
+                <div class="registration-number">Registration No: <span>MF/094/26/20</span></div>
+            </div>
+
+            <div class="company-item">
+                <button class="company-button" onclick="toggleCompany(this)">
+                    <span class="company-name">Choice Mutual Fund</span><span class="arrow">↓</span>
+                </button>
+                <div class="registration-number">Registration No: <span>MF/087/25/13</span></div>
+            </div>
+
+            <div class="company-item">
+                <button class="company-button" onclick="toggleCompany(this)">
+                    <span class="company-name">CRB MF</span><span class="arrow">↓</span>
+                </button>
+                <div class="registration-number">Registration No: <span>MF/008/93/5</span></div>
+            </div>
+
+            <div class="company-item">
+                <button class="company-button" onclick="toggleCompany(this)">
+                    <span class="company-name">DSP MF</span><span class="arrow">↓</span>
+                </button>
+                <div class="registration-number">Registration No: <span>MF/036/97/7</span></div>
+            </div>
+
+            <div class="company-item">
+                <button class="company-button" onclick="toggleCompany(this)">
+                    <span class="company-name">EDELWEISS MF</span><span class="arrow">↓</span>
+                </button>
+                <div class="registration-number">Registration No: <span>MF/057/08/02</span></div>
+            </div>
+
+            <div class="company-item">
+                <button class="company-button" onclick="toggleCompany(this)">
+                    <span class="company-name">FRANKLIN TEMPLETON MF</span><span class="arrow">↓</span>
+                </button>
+                <div class="registration-number">Registration No: <span>MF/026/96/8</span></div>
+            </div>
+
+            <div class="company-item">
+                <button class="company-button" onclick="toggleCompany(this)">
+                    <span class="company-name">Groww Mutual Fund</span><span class="arrow">↓</span>
+                </button>
+                <div class="registration-number">Registration No: <span>MF/068/11/03</span></div>
+            </div>
+
+            <div class="company-item">
+                <button class="company-button" onclick="toggleCompany(this)">
+                    <span class="company-name">HDFC MF</span><span class="arrow">↓</span>
+                </button>
+                <div class="registration-number">Registration No: <span>MF/044/00/6</span></div>
+            </div>
+
+            <div class="company-item">
+                <button class="company-button" onclick="toggleCompany(this)">
+                    <span class="company-name">Helios Mutual Fund</span><span class="arrow">↓</span>
+                </button>
+                <div class="registration-number">Registration No: <span>MF/079/23/05</span></div>
+            </div>
+
+            <div class="company-item">
+                <button class="company-button" onclick="toggleCompany(this)">
+                    <span class="company-name">HSBC MF</span><span class="arrow">↓</span></button>
+                <div class="registration-number">Registration No: <span>MF/046/02/5</span></div>
+            </div>
+
+            <div class="company-item">
+                <button class="company-button" onclick="toggleCompany(this)">
+                    <span class="company-name">ICICI PRUDENTIAL MF</span><span class="arrow">↓</span>
+                </button>
+                <div class="registration-number">Registration No: <span>MF/003/93/6</span></div>
+            </div>
+
+            <div class="company-item">
+                <button class="company-button" onclick="toggleCompany(this)">
+                    <span class="company-name">IDBI MUTUAL FUND</span><span class="arrow">↓</span>
+                </button>
+                <div class="registration-number">Registration No: <span>MF/064/10/01</span></div>
+            </div>
+
+            <div class="company-item">
+                <button class="company-button" onclick="toggleCompany(this)">
+                    <span class="company-name">IIFCL MF (IDF)</span><span class="arrow">↓</span>
+                </button>
+                <div class="registration-number">Registration No: <span>MF/071/13/01</span></div>
+            </div>
+
+            <div class="company-item">
+                <button class="company-button" onclick="toggleCompany(this)">
+                    <span class="company-name">IL&amp;FS IDF MF</span><span class="arrow">↓</span>
+                </button>
+                <div class="registration-number">Registration No: <span>MF/072/13/02</span></div>
+            </div>
+
+            <div class="company-item">
+                <button class="company-button" onclick="toggleCompany(this)">
+                    <span class="company-name">Invesco Mutual Fund</span><span class="arrow">↓</span>
+                </button>
+                <div class="registration-number">Registration No: <span>MF/052/06/01</span></div>
+            </div>
+
+            <div class="company-item">
+                <button class="company-button" onclick="toggleCompany(this)">
+                    <span class="company-name">ITI Mutual Fund</span><span class="arrow">↓</span>
+                </button>
+                <div class="registration-number">Registration No: <span>MF/073/18/01</span></div>
+            </div>
+
+            <div class="company-item">
+                <button class="company-button" onclick="toggleCompany(this)">
+                    <span class="company-name">Jio BlackRock Mutual Fund</span><span class="arrow">↓</span>
+                </button>
+                <div class="registration-number">Registration No: <span>MF/085/25/11</span></div>
+            </div>
+
+            <div class="company-item">
+                <button class="company-button" onclick="toggleCompany(this)">
+                    <span class="company-name">JM FINANCIAL MF</span><span class="arrow">↓</span>
+                </button>
+                <div class="registration-number">Registration No: <span>MF/015/94/8</span></div>
+            </div>
+
+            <div class="company-item">
+                <button class="company-button" onclick="toggleCompany(this)">
+                    <span class="company-name">Kotak Mutual Fund</span><span class="arrow">↓</span>
+                </button>
+                <div class="registration-number">Registration No: <span>MF/038/98/1</span></div>
+            </div>
+
+            <div class="company-item">
+                <button class="company-button" onclick="toggleCompany(this)">
+                    <span class="company-name">Lakshya Mutual Fund</span><span class="arrow">↓</span>
+                </button>
+                <div class="registration-number">Registration No: <span>MF/091/26/17</span></div>
+            </div>
+
+            <div class="company-item">
+                <button class="company-button" onclick="toggleCompany(this)">
+                    <span class="company-name">LIC MF</span><span class="arrow">↓</span>
+                </button>
+                <div class="registration-number">Registration No: <span>MF/012/94/5</span></div>
+            </div>
+
+            <div class="company-item">
+                <button class="company-button" onclick="toggleCompany(this)">
+                    <span class="company-name">Mahindra Manulife Mutual Fund</span><span class="arrow">↓</span>
+                </button>
+                <div class="registration-number">Registration No: <span>MF/069/16/01</span></div>
+            </div>
+
+            <div class="company-item">
+                <button class="company-button" onclick="toggleCompany(this)">
+                    <span class="company-name">Marcellus Mutual Fund</span><span class="arrow">↓</span>
+                </button>
+                <div class="registration-number">Registration No: <span>MF/095/26/21</span></div>
+            </div>
+
+            <div class="company-item">
+                <button class="company-button" onclick="toggleCompany(this)">
+                    <span class="company-name">MIRAE ASSET MF</span><span class="arrow">↓</span>
+                </button>
+                <div class="registration-number">Registration No: <span>MF/055/07/03</span></div>
+            </div>
+
+            <div class="company-item">
+                <button class="company-button" onclick="toggleCompany(this)">
+                    <span class="company-name">Monarch Mutual Fund</span><span class="arrow">↓</span>
+                </button>
+                <div class="registration-number">Registration No: <span>MF/092/26/18</span></div>
+            </div>
+
+            <div class="company-item">
+                <button class="company-button" onclick="toggleCompany(this)">
+                    <span class="company-name">MOTILAL OSWAL MF</span><span class="arrow">↓</span>
+                </button>
+                <div class="registration-number">Registration No: <span>MF/063/09/04</span></div>
+            </div>
+
+            <div class="company-item">
+                <button class="company-button" onclick="toggleCompany(this)">
+                    <span class="company-name">N J Mutual Fund</span><span class="arrow">↓</span>
+                </button>
+                <div class="registration-number">Registration No: <span>MF/076/21/02</span></div>
+            </div>
+
+            <div class="company-item">
+                <button class="company-button" onclick="toggleCompany(this)">
+                    <span class="company-name">NAVI MUTUAL FUND</span><span class="arrow">↓</span>
+                </button>
+                <div class="registration-number">Registration No: <span>MF/062/09/03</span></div>
+            </div>
+
+            <div class="company-item">
+                <button class="company-button" onclick="toggleCompany(this)">
+                    <span class="company-name">Nippon India Mutual Fund</span><span class="arrow">↓</span>
+                </button>
+                <div class="registration-number">Registration No: <span>MF/022/95/1</span></div>
+            </div>
+
+            <div class="company-item">
+                <button class="company-button" onclick="toggleCompany(this)">
+                    <span class="company-name">Nuvama Mutual Fund</span><span class="arrow">↓</span>
+                </button>
+                <div class="registration-number">Registration No: <span>MF/093/26/19</span></div>
+            </div>
+
+            <div class="company-item">
+                <button class="company-button" onclick="toggleCompany(this)">
+                    <span class="company-name">Old Bridge Mutual Fund</span><span class="arrow">↓</span>
+                </button>
+                <div class="registration-number">Registration No: <span>MF/081/23/07</span></div>
+            </div>
+
+            <div class="company-item">
+                <button class="company-button" onclick="toggleCompany(this)">
+                    <span class="company-name">PGIM INDIA MUTUAL FUND</span><span class="arrow">↓</span>
+                </button>
+                <div class="registration-number">Registration No: <span>MF/065/10/02</span></div>
+            </div>
+
+            <div class="company-item">
+                <button class="company-button" onclick="toggleCompany(this)">
+                    <span class="company-name">PPFAS MF</span><span class="arrow">↓</span>
+                </button>
+                <div class="registration-number">Registration No: <span>MF/069/12/01</span></div>
+            </div>
+
+            <div class="company-item">
+                <button class="company-button" onclick="toggleCompany(this)">
+                    <span class="company-name">Quant Mutual Fund</span><span class="arrow">↓</span>
+                </button>
+                <div class="registration-number">Registration No: <span>MF/028/96/4</span></div>
+            </div>
+
+            <div class="company-item">
+                <button class="company-button" onclick="toggleCompany(this)">
+                    <span class="company-name">QUANTUM MF</span><span class="arrow">↓</span>
+                </button>
+                <div class="registration-number">Registration No: <span>MF/051/05/02</span></div>
+            </div>
+
+            <div class="company-item">
+                <button class="company-button" onclick="toggleCompany(this)">
+                    <span class="company-name">SAMCO MUTUAL FUND</span><span class="arrow">↓</span>
+                </button>
+                <div class="registration-number">Registration No: <span>MF/077/21/03</span></div>
+            </div>
+
+            <div class="company-item">
+                <button class="company-button" onclick="toggleCompany(this)">
+                    <span class="company-name">SBI MF</span><span class="arrow">↓</span>
+                </button>
+                <div class="registration-number">Registration No: <span>MF/009/93/3</span></div>
+            </div>
+
+            <div class="company-item">
+                <button class="company-button" onclick="toggleCompany(this)">
+                    <span class="company-name">SHRIRAM MF</span><span class="arrow">↓</span>
+                </button>
+                <div class="registration-number">Registration No: <span>MF/017/94/4</span></div>
+            </div>
+
+            <div class="company-item">
+                <button class="company-button" onclick="toggleCompany(this)">
+                    <span class="company-name">SUNDARAM MF</span><span class="arrow">↓</span>
+                </button>
+                <div class="registration-number">Registration No: <span>MF/034/97/2</span></div>
+            </div>
+
+            <div class="company-item">
+                <button class="company-button" onclick="toggleCompany(this)">
+                    <span class="company-name">Tata Mutual Fund</span><span class="arrow">↓</span>
+                </button>
+                <div class="registration-number">Registration No: <span>MF/023/95/9</span></div>
+            </div>
+
+            <div class="company-item">
+                <button class="company-button" onclick="toggleCompany(this)">
+                    <span class="company-name">TAURUS MF</span><span class="arrow">↓</span>
+                </button>
+                <div class="registration-number">Registration No: <span>MF/002/93/</span></div>
+            </div>
+
+            <div class="company-item">
+                <button class="company-button" onclick="toggleCompany(this)">
+                    <span class="company-name">The Wealth Company Mutual Fund</span><span class="arrow">↓</span>
+                </button>
+                <div class="registration-number">Registration No: <span>MF/086/25/12</span></div>
+            </div>
+
+            <div class="company-item">
+                <button class="company-button" onclick="toggleCompany(this)">
+                    <span class="company-name">TRUST MUTUAL FUND</span><span class="arrow">↓</span>
+                </button>
+                <div class="registration-number">Registration No: <span>MF/075/19/01</span></div>
+            </div>
+
+            <div class="company-item">
+                <button class="company-button" onclick="toggleCompany(this)">
+                    <span class="company-name">Unifi Mutual Fund</span><span class="arrow">↓</span>
+                </button>
+                <div class="registration-number">Registration No: <span>MF/082/24/08</span></div>
+            </div>
+
+            <div class="company-item">
+                <button class="company-button" onclick="toggleCompany(this)">
+                    <span class="company-name">Union Mutual Fund</span><span class="arrow">↓</span>
+                </button>
+                <div class="registration-number">Registration No: <span>MF/066/11/01</span></div>
+            </div>
+
+            <div class="company-item">
+                <button class="company-button" onclick="toggleCompany(this)">
+                    <span class="company-name">UTI MF</span><span class="arrow">↓</span>
+                </button>
+                <div class="registration-number">Registration No: <span>MF/048/03/01</span></div>
+            </div>
+
+            <div class="company-item">
+                <button class="company-button" onclick="toggleCompany(this)">
+                    <span class="company-name">WhiteOak Capital Mutual Fund</span><span class="arrow">↓</span>
+                </button>
+                <div class="registration-number">Registration No: <span>MF/074/18/02</span></div>
+            </div>
+
+            <div class="company-item">
+                <button class="company-button" onclick="toggleCompany(this)">
+                    <span class="company-name">Zerodha Mutual Fund</span><span class="arrow">↓</span>
+                </button>
+                <div class="registration-number">Registration No: <span>MF/080/23/06</span></div>
+            </div>
+
+            <div class="no-results" id="noResults">
+                No mutual fund company found.
+            </div>
+        </div>
+    </div>
 </section>
 
-
-
-<!-- =====================================
-     REGISTERED INTERMEDIARIES
-====================================== -->
-
-<section class="intermediaries" id="intermediaries">
-
-    <div class="section-container">
-
-        <div class="section-label">
-            Registered Intermediaries
+<!-- CONTACT -->
+<section class="contact">
+    <div class="container">
+        <div class="contact-inner">
+            <div>
+                <h2>Start with clarity.</h2>
+                <p>Explore your investment options with Minakshi Investment.</p>
+            </div>
+            <a href="#home" class="top-button">BACK TO TOP</a>
         </div>
+    </div>
+</section>
 
-        <h2 class="section-title">
-            Our Intermediaries
-        </h2>
+<!-- FOOTER -->
+<footer>
+    <div class="footer-inner">
+        <div class="footer-brand">MINAKSHI INVESTMENT</div>
+        <div class="footer-copy">© 2026 Minakshi Investment | All Rights Reserved</div>
+    </div>
+</footer>
 
-        <p class="section-description">
-            Details of the registered intermediaries associated
-            with Minakshi Investment.
-        </p>
+<script>
+function toggleCompany(button) {
+    const item = button.parentElement;
+    const wasOpen = item.classList.contains("active");
 
+    document.querySelectorAll(".company-item.active").forEach(function(openItem) {
+        openItem.classList.remove("active");
+    });
 
-        <div class="intermediary-grid">
+    if (!wasOpen) {
+        item.classList.add("active");
+    }
+}
 
+const search = document.getElementById("companySearch");
+const companies = document.querySelectorAll(".company-item");
+const count = document.getElementById("companyCount");
+const noResults = document.getElementById("noResults");
 
-            <!-- CARD 1 -->
+search.addEventListener("input", function() {
+    const term = search.value.toLowerCase().trim();
+    let visible = 0;
 
-            <div class="intermediary-card">
+    companies.forEach(function(company) {
+        const name = company.querySelector(".company-name").textContent.toLowerCase();
 
-                <div class="card-number">
-                    01
-                </div>
+        if (name.includes(term)) {
+            company.style.display = "";
+            visible++;
+        } else {
+            company.style.display = "none";
+            company.classList.remove("active");
+        }
+    });
 
-                <h3>
-                    Sunil Kumar Sharma
-                </h3>
+    count.textContent = visible;
+    noResults.style.display = visible === 0 ? "block" : "none";
+});
+</script>
 
-                <p>
-                    AMFI Registered Mutual Fund Distributor
-                </p>
-
-                <div class="registration">
-
-                    <span>
-                        <strong>ARN:</strong>
-                        49981
-                    </span>
-
-                </div>
-
-            </div>
-
-
-
-            <!-- CARD 2 -->
-
-            <div class="intermediary-card">
-
-                <div class="card-number">
-                    02
-                </div>
-
-                <h3>
-                    Saloni Sharma
-                </h3>
-
-                <p>
-                    AMFI Registered Mutual Fund Distributor
-                    &amp; SIF Distributor,
-                    APMI Registered PMS Distributor
-                </p>
-
-                <div class="registration">
-
-                    <span>
-                        <strong>ARN:</strong>
-                        190283
-                    </span>
-
-                    <span>
-                        <strong>PMS:</strong>
-                        APRN05574
-                    </span>
-
-                </div>
-
-            </div>
-
-
-
-            <!-- CARD 3 -->
-
-            <div class="intermediary-card">
-
-                <div class="card-number">
-                    03
-                </div>
-
-                <h3>
-                    Anmol Sharma
-                </h3>
-
-                <p>
-                    AMFI Registered Mutual Fund Distributor
-                    &amp; SIF Distributor,
-                    APMI Registered PMS Distributor
-                </p>
-
-                <div class="registration">
-
-                    <span>
-                        <strong>ARN:</strong>
-                        252225
-                    </span>
-
-                    <span>
-                        <strong>PMS:</strong>
-                        APRN05573
-                    </span>
-
-                </div>
-
-            </div>
-
-
-        </div>
-
-    </
+</body>
+</html>
